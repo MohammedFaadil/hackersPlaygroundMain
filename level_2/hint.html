@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link rel="canonical" href="https://fuhadkalathingal.github.io/phishguard/level_1.html/hint.html" />
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Hacker Is Planning Something</title>
+
+  <!-- Meta SEO -->
+  <meta name="title" content="PhishGuard Level - 1" />
+  <meta name="description" content="This level makes you aware about the phishing links." />
+  <meta name="robots" content="index, follow" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="language" content="English" />
+  <meta name="author" content="PhishGuard" />
+
+  <!-- Social media share -->
+  <meta property="og:title" content="PhishGuard Level - 1" />
+  <meta property="og:site_name" content="PhishGuard" />
+  <meta property="og:url" content="https://fuhadkalathingal.github.io/phishguard/" />
+  <meta property="og:description" content="This level makes you aware about the phishing links" />
+  <meta property="og:type" content="Education" />
+  <meta property="og:image" content="assets/favicon.png" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/favicon.png" />
+  <meta name="msapplication-TileColor" content="#da532c" />
+  <meta name="theme-color" content="#ffffff" />
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=VT323&display=swap");
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'VT323', monospace;
+      background-color: #0a0a0a;
+      background-image:
+        linear-gradient(to bottom, rgba(0, 255, 170, 0.05) 0%, rgba(0, 255, 140, 0.03) 100%),
+        url('https://www.transparenttextures.com/patterns/green-fibers.png'),
+        radial-gradient(circle at center, #101010 0%, #000000 100%);
+      background-repeat: repeat, repeat, no-repeat;
+      background-size: auto, auto, cover;
+      color: #f5f5f5;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+
+    .hint-container {
+      width: 90%;
+      max-width: 680px;
+      padding: 30px;
+      text-align: center;
+      border-radius: 18px;
+      background: rgba(0, 255, 204, 0.05);
+      border: 2px solid #00ffc3;
+      box-shadow: 0 0 20px rgba(0, 255, 200, 0.25), 0 0 50px rgba(0, 255, 200, 0.15);
+      backdrop-filter: blur(4px);
+    }
+
+    img {
+      width: 100%;
+      max-width: 1280px;
+      height: auto;
+      aspect-ratio: 16 / 9;
+      display: block;
+      margin: 0 auto;
+      border-radius: 12px;
+      border: 2px solid #00ffcc;
+      box-shadow: 0 0 20px rgba(0, 255, 204, 0.3);
+    }
+
+
+    h1 {
+      font-size: 2.2rem;
+      color: #ff0055;
+      margin-top: 25px;
+      text-shadow: 0 0 8px #ff0055, 0 0 15px #ff3370;
+    }
+
+    p {
+      font-size: 1.25rem;
+      margin: 15px 0 30px;
+      color: #e0f7fa;
+      text-shadow: 0 0 3px #00ffe6;
+    }
+
+    a.btn-glitch-fill {
+      display: inline-block;
+      padding: 14px 36px;
+      font-size: 1.5rem;
+      background: #00ffcc;
+      color: #000;
+      border: none;
+      border-radius: 12px;
+      font-family: 'VT323', monospace;
+      text-transform: uppercase;
+      text-decoration: none;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 15px #00ffcc, 0 0 40px #00ffcc55;
+    }
+
+    a.btn-glitch-fill::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -75%;
+      width: 50%;
+      height: 100%;
+      background: rgba(255, 255, 255, 0.3);
+      transform: skewX(-25deg);
+      transition: 0.5s;
+    }
+
+    a.btn-glitch-fill:hover::before {
+      left: 125%;
+    }
+
+    a.btn-glitch-fill:hover {
+      background-color: #fff;
+      color: #000;
+      box-shadow: 0 0 25px #00ffe6, 0 0 60px #00ffe6;
+    }
+
+    a.btn-glitch-fill .text {
+      position: relative;
+      z-index: 2;
+    }
+
+    a.btn-glitch-fill .decoration {
+      margin-left: 10px;
+      color: #000;
+      font-size: 1.4rem;
+      vertical-align: middle;
+    }
+
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 1.6rem;
+      }
+
+      p {
+        font-size: 1rem;
+      }
+
+      a.btn-glitch-fill {
+        font-size: 1.1rem;
+        padding: 10px 22px;
+      }
+    }
+  </style>
+
+</head>
+
+<body>
+  <div class="hint-container">
+    <img width="1280px" height="720px" rel="preload" loading="eager" decoding="async" fetchpriority="high"
+      src="assets/hint.webp" alt="hint" />
+    <h1>Devil Hacker :</h1>
+    <p>Iam ready for the first phase of ransomeware attack. Bravo...</p>
+    <a id="playButton" href="ransomware_animated_video.html" class="btn-glitch-fill">
+      <span class="text">// Initialize</span><span class="text-decoration">_</span><span
+        class="decoration">&rArr;</span>
+    </a>
+  </div>
+</body>
+
+</html>

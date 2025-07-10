@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cybersecurity Quizzes</title>
+    <style>
+        /* Basic reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+       
+
+        /* Other styles remain unchanged */
+
+        /* Description text */
+        .quiz-card p {
+            font-size: 1.8em;
+            /* Adjust this value as needed */
+            color: #000000;
+            margin-bottom: 15px;
+            font-size: large;
+            font-weight: bold;
+            font-family: cursive;
+            font-size: 50px;
+
+        }
+
+
+        /* Body styling */
+        body {
+            background-color: #f4f4f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            flex-direction: column;
+            overflow: auto;
+
+            /* Allow scrolling */
+        }
+
+        /* Title styling */
+
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Container for quizzes */
+        .quiz-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            padding: 20px;
+            width: 90%;
+            max-width: 1400px;
+            animation: slideIn 1s ease;
+            /* Slide in animation for container */
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateY(30px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        /* Quiz card styling */
+        .quiz-card {
+            background-color: #e3f9fb;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+            overflow: hidden;
+            /* Prevent content overflow */
+            position: relative;
+            /* Relative position for pseudo-elements */
+            z-index: 1;
+            /* To place pseudo-elements behind */
+            will-change: transform;
+
+            /* Improve performance on hover */
+        }
+
+        
+
+        /* Hover effect for quiz cards */
+        .quiz-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Quiz card title styling */
+        .quiz-card h2 {
+            font-size: 1.6em;
+            color: #0072ff;
+            margin-bottom: 10px;
+            transition: color 0.3s ease;
+        }
+
+        /* Change color on hover */
+        .quiz-card:hover h2 {
+            color: #005bb5;
+        }
+
+        /* Description text */
+        .quiz-card p {
+            font-size: 1em;
+            color: #555;
+            margin-bottom: 15px;
+        }
+
+        /* Button for starting quiz */
+        .start-btn {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 10px 20px;
+            font-size: 1em;
+            color: #fff;
+            background-color: #0072ff;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            font-family: cursive;
+        }
+
+        .start-btn:hover {
+            background-color: #005bb5;
+            transform: scale(1.05);
+            /* Slightly increase button size on hover */
+        }
+
+        /* Add a background animation for the cards */
+        .quiz-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(120deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.1));
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            z-index: -1;
+            /* Behind the card content */
+        }
+
+        /* Show background effect on hover */
+        .quiz-card:hover::before {
+            opacity: 1;
+        }
+
+        h1 {
+            font-size: 3em;
+            color: #fff;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.8);
+            font-family: cursive;
+
+            font-weight: bold;
+            animation: beat 3s ease-in-out infinite;
+        }
+
+        h2{
+            font-family: cursive;
+        }
+
+        @keyframes beat {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.1);
+            }
+        }
+
+        #bg-video {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+    </style>
+</head>
+
+<body>
+    <video autoplay muted loop id="bg-video">
+        <source src="/images/quizbg.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <br><br>
+    <h1>Cybersecurity Quizzes</h1>
+    <br><br>
+
+    <!-- Container for quiz cards -->
+    <div class="quiz-container">
+        <!-- Quiz cards -->
+        <div class="quiz-card">
+            <h2>Quiz 1</h2>
+            <h2>Introduction to Cybersecurity</h2>
+            <p>Learn the basics of cybersecurity and its importance!</p>
+            <a href="/quizzes/quiz1.html" class="start-btn" target="_blank">Start Quiz</a>
+        </div>
+        <div class="quiz-card">
+            <h2>Quiz 2</h2>
+            <h2>Network Security</h2>
+            <p>Test your knowledge on firewalls, VPNs, and network threats.</p>
+            <a href="/quizzes/quiz2.html" class="start-btn" target="_blank">Start Quiz</a>
+        </div>
+        <div class="quiz-card">
+            <h2>Quiz 3</h2>
+            <h2>Ethical Hacking Fundamentals</h2>
+            <p>Explore the key concepts of ethical hacking.</p>
+            <a href="/quizzes/quiz3.html" class="start-btn" target="_blank">Start Quiz</a>
+        </div>
+        <div class="quiz-card">
+            <h2>Quiz 4</h2>
+            <h2>Cryptography Basics</h2>
+            <p>Delve into encryption, hashing, and secure communications.</p>
+            <a href="/quizzes/quiz4.html" class="start-btn" target="_blank">Start Quiz</a>
+        </div>
+        <div class="quiz-card">
+            <h2>Quiz 5</h2>
+            <h2>Web Application Security</h2>
+            <p>Test your skills on protecting web applications from threats.</p>
+            <a href="#" class="start-btn">Start Quiz</a>
+        </div>
+        <div class="quiz-card">
+            <h2>Quiz 6</h2>
+            <h2>Social Engineering</h2>
+            <p>Understand tactics hackers use to manipulate people.</p>
+            <a href="#" class="start-btn">Start Quiz</a>
+        </div>
+        <div class="quiz-card">
+            <h2>Quiz 7</h2>
+            <h2>Malware and Ransomware</h2>
+            <p>Identify various types of malware and ransomware threats.</p>
+            <a href="#" class="start-btn">Start Quiz</a>
+        </div>
+        <div class="quiz-card">
+            <h2>Quiz 8</h2>
+            <h2>Vulnerability Assessment</h2>
+            <p>Learn about identifying and mitigating vulnerabilities.</p>
+            <a href="#" class="start-btn">Start Quiz</a>
+        </div>
+        <div class="quiz-card">
+            <h2>Quiz 9</h2>
+            <h2>Cloud Security</h2>
+            <p>Explore security measures for cloud-based environments.</p>
+            <a href="#" class="start-btn">Start Quiz</a>
+        </div>
+        <div class="quiz-card">
+            <h2>Quiz 10</h2>
+            <h2>Penetration Testing</h2>
+            <p>Challenge yourself with concepts of penetration testing.</p>
+            <a href="#" class="start-btn">Start Quiz</a>
+        </div>
+        <div class="quiz-card">
+            <h2>Quiz 11</h2>
+            <h2>Incident Response</h2>
+            <p>Review strategies for managing cybersecurity incidents.</p>
+            <a href="#" class="start-btn">Start Quiz</a>
+        </div>
+        <div class="quiz-card">
+            <h2>Quiz 12</h2>
+            <h2>Mobile Security</h2>
+            <p>Learn about securing mobile devices and apps.</p>
+            <a href="#" class="start-btn">Start Quiz</a>
+        </div>
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,142 @@
+.btn {
+    width: 150px;
+    /* Set desired width */
+    white-space: nowrap;
+    /* Keep text in a single line */
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+}
+.navbar-toggler{
+    background-color: white;
+  }
+  /* CSS for increased navbar height when sidebar is open */
+  /* CSS for increased navbar height when toggled */
+  .navbar.expanded-lg{
+    height: 350px; /* Height when the navbar is expanded */
+  }
+  
+  /* Default navbar height */
+  .navbar {
+    height: 120px; /* Default height */
+  }
+  
+  /* Media query for smaller screens */
+  @media (max-width: 768px) {
+    .navbar {
+      height: 350px; /* Default height for small screens */
+    }
+  
+    .navbar-brand img {
+      max-width: 220px; /* Smaller logo on mobile */
+    }
+  
+    .navbar-nav .nav-link {
+      font-size: 1rem; /* Adjust font size for nav links */
+    }
+  }
+  
+
+.mybutton1:hover,
+.mybutton2:hover {
+    background-color: #ff005b;
+    /* Hover background color */
+    color: white;
+    /* Text color on hover */
+    border-color: #ff005b;
+}
+
+.btn {
+    border-color: #000000;
+    background-color: #61fffd;
+    color: #001f3f;
+    font-weight: bold;
+}
+
+/* Basic styling */
+.hero {
+    padding: 30px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    text-align: center;
+    background: #f9f9f9;
+    overflow: hidden;
+}
+
+.hero-title {
+    font-size: 2.5em;
+    font-weight: bold;
+    opacity: 0;
+    animation: fadeInUp 1.5s ease forwards, heartbeat 1.5s infinite; /* Added heartbeat animation */
+    transition: transform 0.3s ease-in-out, color 0.3s ease-in-out; /* Transition for hover effect */
+}
+
+.hero-paragraph {
+    font-size: larger;
+    margin: 20px;
+    opacity: 0;
+    animation: fadeIn 2s ease forwards;
+    transition: transform 0.3s ease-in-out, color 0.3s ease-in-out; /* Transition for hover effect */
+}
+
+/* Animation keyframes */
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Heartbeat animation */
+@keyframes heartbeat {
+    0%, 20%, 50%, 80%, 100% {
+        transform: scale(1);
+    }
+    10%, 30%, 60%, 90% {
+        transform: scale(1.1); /* Slightly increase scale */
+    }
+}
+
+/* Hover effects for title and paragraphs */
+.hero-title:hover {
+    transform: scale(1.05); /* Slightly enlarge the title */
+    color: #007bff; /* Change color on hover */
+}
+
+.hero-paragraph:hover {
+    transform: translateY(-5px); /* Slightly raise the paragraph */
+    color: #007bff; /* Change color on hover */
+}
+
+/* Smooth fade-in for all hero elements */
+.hero * {
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+/* Delayed fade-in effect */
+.hero-title {
+    animation-delay: 0.5s;
+}
+.hero-paragraph:nth-child(2) {
+    animation-delay: 1s;
+}
+.hero-paragraph:nth-child(3) {
+    animation-delay: 1.5s;
+}
+.hero-paragraph:nth-child(4) {
+    animation-delay: 2s;
+}
+

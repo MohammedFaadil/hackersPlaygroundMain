@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hacker's Playground</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+    <a href=""></a>
+
+
+
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+
+    <!-- Meta SEO -->
+    <meta name="title" content="hackersplayground" />
+    <meta name="description"
+        content="hackersplayground is a cyber awareness game to train common peoples about cyber attacks" />
+    <meta name="robots" content="index, follow" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="language" content="English" />
+    <meta name="author" content="hackersplayground" />
+
+    <!-- Social media share -->
+
+
+
+    <meta property="og:description"
+        content="Hackers Playground is a cyber awareness game to train common peoples about cyber attacks" />
+    <meta property="og:type" content="Education" />
+    <link rel="stylesheet" href="css/hackersplayground.css" type="text/css" media="screen" charset="utf-8" />
+</head>
+<script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-app.js";
+    import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-auth.js";
+
+    const firebaseConfig = {
+        apiKey: "AIzaSyBt7je8Ga9fKVJ7Pu2Ok8HvbFaLV5Qe1ts",
+        authDomain: "hackersplayground-ca1a1.firebaseapp.com",
+        projectId: "hackersplayground-ca1a1",
+        storageBucket: "hackersplayground-ca1a1.firebasestorage.app",
+        messagingSenderId: "597874916220",
+        appId: "1:597874916220:web:85ad84575aac58ce4c82f9",
+        measurementId: "G-PSC705VYNS"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+
+    window.addEventListener("DOMContentLoaded", () => {
+        const navForm = document.querySelector(".navbar .d-flex");
+
+        onAuthStateChanged(auth, (user) => {
+            if (user) {
+                const userName = user.displayName?.trim() || user.email.split('@')[0]; // fallback if displayName not set
+
+                navForm.innerHTML = `
+          <span class="text-white me-3" style="font-weight:bold;">Welcome, ${userName}</span>
+          <button id="logoutBtn" class="btn btn-outline-danger">Logout</button>
+        `;
+
+                document.getElementById("logoutBtn").addEventListener("click", () => {
+                    signOut(auth).then(() => {
+                        window.location.reload();
+                    }).catch((error) => {
+                        alert("Logout error: " + error.message);
+                    });
+                });
+
+            } else {
+                // No user logged in
+                navForm.innerHTML = `
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <a href="signin.html" target="_blank" class="btn btn-outline-success mybutton1" id="mybtn" style="margin-right: 10px;">Login</a>
+          <a href="/signup.html" target="_blank" class="btn btn-outline-success mybutton2" id="mybtn">Sign Up</a>
+        `;
+            }
+        });
+    });
+</script>
+<!DOCTYPE html>
+<html lang="en">
+
+
+<body>
+    <nav class="navbar navbar-expand-lg"
+        style="background-color: #001F3F; height: 70px; position: fixed; top: 0; width: 100%; z-index: 1000;">
+        <div id="header" class="container-fluid">
+            <a class="navbar-brand" href="index.html" style="color: white; font-size:x-large;"><img
+                    src="/images/hackerlogo.png" style="width: 270px;"></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="learn.html" target="_blank"
+                            style="color: white; font-size:large">Learn</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/play/play.html" target="_blank"
+                            style="color: white; font-size:large">Play</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/award/badges.html" target="_blank"
+                            style="color: white; font-size:large;">Compete</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="about.html"
+                            style="color: white; font-size:large">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="contact.html" target="_blank"
+                            style="color: white; font-size:large">Contact</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link " aria-disabled="true"></a>
+                    </li>
+                </ul>
+                <form class="d-flex" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+
+
+                    <a href="signin.html" target="_blank" class="btn btn-outline-success mybutton1" id="mybtn"
+                        style="margin-right: 10px;">Login In</a>
+                    <a href="/signup.html" target="_blank" class="btn btn-outline-success mybutton2" id="mybtn">Sign
+                        Up</a>
+                </form>
+            </div>
+        </div>
+    </nav>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+            transition: 0.5s;
+        }
+
+        body {
+            width: 100%;
+            height: 100vh;
+            background-color: #EEF7FF;
+            text-align: center;
+        }
+
+        #imgme {
+            width: 250px;
+            padding: 0;
+            border-radius: 50%;
+            /* Keep the border-radius for a circular shape */
+            background-color: #ddfffe;
+            margin-top: 100px;
+
+            /* Adding black shadow */
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
+
+            /* New properties for smooth outer appearance */
+            border: 0 solid #fbdee8;
+            /* White border to contrast with the background */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            /* Smooth transitions */
+        }
+
+        /* Optional: Adding a hover effect for interactivity */
+        #imgme:hover {
+            transform: scale(1.05);
+            /* Slightly enlarge the image on hover */
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+            /* More pronounced shadow on hover */
+        }
+
+
+
+        h1 {
+            font-size: 70px;
+            padding-top: 20px;
+            font-family: 'Fredoka One', cursive;
+        }
+
+        p {
+            line-height: 30px;
+            font-size: 20px;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            color: #444;
+            padding-top: 20px;
+        }
+
+        .icon ion-icon {
+            font-size: 25px;
+            padding: 10px;
+            color: #f44336;
+            border-radius: 50%;
+            background-color: #ffffffe3;
+            margin: 20px 5px;
+            cursor: pointer;
+            border: 2px solid #f44336;
+            /* Adds a 5px border */
+        }
+
+
+        .icon ion-icon:hover {
+            background-color: #001F3F;
+            color: #fff;
+            border: 2px solid #001F3F;
+        }
+
+        .btna {
+            width: 280px;
+            height: 55px;
+            background-color: #f44336;
+            border: none;
+            font-size: 18px;
+            color: #fff;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .btnb {
+            width: 280px;
+            height: 55px;
+            background-color: transparent;
+            border: 2px solid #f44336;
+            font-size: 18px;
+            color: #f44336;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .btnb:hover {
+            background-color: #f44336;
+            color: #fff;
+        }
+    </style>
+
+    <body>
+        <img src="/images/me.jpg" id="imgme">
+        <h1>About Me</h1>
+        <p style="font-size: 1.2em; margin: 20px; line-height: 1.6; color: #333;">
+            <strong>I'm Mohammed Faadil</strong>, a passionate <strong>Computer Science Engineering</strong> student at
+            <strong>B.S. Abdur Rahman Crescent Institute of Science and Technology</strong> in Chennai. As a dedicated
+            <strong>cybersecurity</strong> and <strong>ethical hacking</strong> enthusiast, I have created this website
+            as a hub for hacking lovers and cybersecurity geeks.
+            My aim is to share valuable insights, resources, and tools that can help both beginners and advanced users
+            navigate the fascinating world of cybersecurity. Through this platform, I hope to foster a community where
+            knowledge is shared, skills are honed, and the importance of digital security is emphasized. Join me on this
+            exciting journey to explore the realms of hacking and cybersecurity together!
+        </p>
+
+        <div class="icon" style="text-decoration: none;">
+            <a href="https://www.linkedin.com/in/mohammed-faadil-9600b924b/" target="_blank" rel="noopener noreferrer"
+                style="text-decoration: none;">
+                <ion-icon name="logo-linkedin" class="logo-linkedin"></ion-icon>
+            </a>
+            <a href="https://www.instagram.com/faadil_hk3/?next=https%3A%2F%2Fwww.instagram.com%2Fdirect%2Finbox%2F%3F__coig_login%3D1"
+                target="_blank" rel="noopener noreferrer" style="text-decoration: none;">
+                <ion-icon name="logo-instagram" class="logo-instagram"></ion-icon>
+            </a>
+            <a href="https://www.instagram.com/faadil_hk3/?next=https%3A%2F%2Fwww.instagram.com%2Fdirect%2Finbox%2F%3F__coig_login%3D1"
+                target="_blank" rel="noopener noreferrer" style="text-decoration: none;">
+                <ion-icon name="logo-facebook" class="logo-facebook"></ion-icon>
+            </a>
+
+
+        </div>
+        <button class="btna">hackersplayground@gmail.com</button>
+        <a href="/index.html" target="_blank" rel="noopener noreferrer">
+            <button class="btnb">View Website</button>
+        </a>
+
+        <br>
+        <br>
+        <br>
+        <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+        <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    </body>
+
+</html>

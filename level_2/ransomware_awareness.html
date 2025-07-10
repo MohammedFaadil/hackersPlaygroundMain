@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Phishing Awareness and Social Hygiene</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/3.6.0/remixicon.min.css" rel="stylesheet" />
+  <link rel="icon" href="assets/favicon.png" />
+
+  <!-- Custom Cyberpunk Style -->
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: "VT323", monospace;
+      background-color: #0a0a0a;
+      background-image:
+        linear-gradient(to bottom, rgba(0, 255, 170, 0.05), rgba(0, 255, 140, 0.03)),
+        url('https://www.transparenttextures.com/patterns/green-fibers.png'),
+        radial-gradient(circle at center, #101010 0%, #000000 100%);
+      background-repeat: repeat, repeat, no-repeat;
+      background-size: auto, auto, cover;
+      color: #f5f5f5;
+      min-height: 100vh;
+      text-align: center;
+      padding: 40px 20px;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    h1 {
+      font-size: 3rem;
+      color: #00ffcc;
+      margin-bottom: 10px;
+      text-shadow: 0 0 5px #00ffcc, 0 0 10px #00ffccaa;
+      animation: glowH1 3s ease-in-out infinite alternate;
+    }
+
+    h2 {
+      font-size: 2.2rem;
+      color: yellow;
+      margin-bottom: 20px;
+      text-shadow: 0 0 4px yellow, 0 0 10px #ffff00aa;
+      animation: glowH2 3s ease-in-out infinite alternate;
+    }
+
+    h3 {
+      font-size: 1.6rem;
+      color: #ff4c4c;
+      margin-bottom: 20px;
+      animation: flickerH3 2.5s infinite;
+    }
+
+    p {
+      font-size: 1.3rem;
+      color: #e0e0e0;
+      margin-bottom: 18px;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      text-align: left;
+      margin-top: 20px;
+    }
+
+    ul li {
+      padding-left: 30px;
+      margin-bottom: 12px;
+      position: relative;
+      font-size: 1.2rem;
+      color: #00ffcc;
+    }
+
+    ul li i {
+      position: absolute;
+      left: 0;
+      top: 2px;
+      color: #fbae1f;
+      font-size: 20px;
+    }
+
+    .btn-glitch-fill {
+      position: relative;
+      display: inline-block;
+      padding: 14px 26px;
+      font-size: 1.6rem;
+      font-family: "VT323", monospace;
+      background-color: #00ffcc;
+      color: #000;
+      border: none;
+      border-radius: 10px;
+      text-decoration: none;
+      cursor: pointer;
+      margin-top: 30px;
+      box-shadow: 0 0 10px #00ffcc, 0 0 30px #00ffcc55;
+      transition: all 0.3s ease;
+    }
+
+    .btn-glitch-fill:hover {
+      background-color: #fff;
+      color: #000;
+      animation: glitch 0.3s linear;
+    }
+
+    @keyframes glitch {
+      25% {
+        transform: translateX(-5px);
+        letter-spacing: 5px;
+        background-color: red;
+      }
+
+      50% {
+        transform: translateX(5px);
+        background-color: green;
+      }
+
+      75% {
+        opacity: 0.8;
+        transform: translateX(-3px);
+      }
+
+      100% {
+        transform: none;
+        background-color: yellow;
+      }
+    }
+
+    @keyframes glowH1 {
+      from {
+        text-shadow: 0 0 5px #00ffcc, 0 0 10px #00ffccaa;
+      }
+
+      to {
+        text-shadow: 0 0 10px #00ffee, 0 0 20px #00ffcc;
+      }
+    }
+
+    @keyframes glowH2 {
+      from {
+        text-shadow: 0 0 5px yellow, 0 0 10px #ffff00aa;
+      }
+
+      to {
+        text-shadow: 0 0 10px #fff176, 0 0 20px #ffee58;
+      }
+    }
+
+    @keyframes flickerH3 {
+
+      0%,
+      19%,
+      21%,
+      23%,
+      25%,
+      54%,
+      56%,
+      100% {
+        opacity: 1;
+        text-shadow: 0 0 3px #ff4c4c, 0 0 7px #ff1a1a;
+      }
+
+      20%,
+      24%,
+      55% {
+        opacity: 0.4;
+        text-shadow: none;
+      }
+    }
+
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2.2rem;
+      }
+
+      h2 {
+        font-size: 1.8rem;
+      }
+
+      h3 {
+        font-size: 1.3rem;
+      }
+
+      ul li {
+        font-size: 1.1rem;
+      }
+    }
+  </style>
+
+</head>
+
+<!-- ... keep everything above same -->
+
+<!-- Replace only the <body> content with the updated version below -->
+
+<body>
+  <div class="container">
+    <h1>⚠️ Phishing Awareness & Social Hygiene</h1>
+    <h2>Protect Yourself in the Digital World</h2>
+
+    <h3>What is Phishing?</h3>
+    <p>
+      Phishing is a form of cyber attack where malicious actors trick you into giving
+      up sensitive information like passwords, credit card numbers, OTPs, or even full access to your account.
+      These attacks often happen through fake emails, websites, texts, or calls posing as trusted institutions.
+    </p>
+
+    <ul>
+      <li><i class="ri-information-line"></i> Emails may look like they’re from your bank, college, or a known service
+        provider.</li>
+      <li><i class="ri-information-line"></i> Attackers often create urgency — like saying your account will be closed
+        if you don’t act.</li>
+      <li><i class="ri-information-line"></i> Even social media messages or QR codes can carry phishing links.</li>
+      <li><i class="ri-information-line"></i> There are types of phishing: spear phishing (targeted), vishing (voice),
+        smishing (SMS), and pharming (redirecting to fake sites).</li>
+    </ul>
+
+    <h3>🛡️ How to Stay Safe from Phishing Attacks</h3>
+    <ul>
+      <li><i class="ri-shield-check-line"></i> <strong>Check the sender's email:</strong> Look out for slight
+        misspellings (e.g., gmaiI.com instead of gmail.com).</li>
+      <li><i class="ri-shield-check-line"></i> <strong>Hover before you click:</strong> Hover over a link to preview the
+        URL before clicking. If it's unfamiliar or shortened, avoid it.</li>
+      <li><i class="ri-shield-check-line"></i> <strong>Don't trust urgency:</strong> Messages claiming “your account
+        will be deactivated today” are likely fake.</li>
+      <li><i class="ri-shield-check-line"></i> <strong>Verify requests:</strong> Call the official number of your bank
+        or organization before acting on suspicious requests.</li>
+      <li><i class="ri-shield-check-line"></i> <strong>Use unique, strong passwords:</strong> Never reuse the same
+        password across platforms. Use a password manager if needed.</li>
+      <li><i class="ri-shield-check-line"></i> <strong>Enable 2FA:</strong> Two-Factor Authentication provides an extra
+        security layer even if your password is compromised.</li>
+      <li><i class="ri-shield-check-line"></i> <strong>Update software regularly:</strong> Old browsers and apps can
+        have vulnerabilities that attackers exploit.</li>
+      <li><i class="ri-shield-check-line"></i> <strong>Report suspicious content:</strong> Most email platforms and
+        social apps let you report phishing attempts — help others stay safe too.</li>
+    </ul>
+
+    <h3>🌐 Tips for Digital Social Hygiene</h3>
+    <ul>
+      <li><i class="ri-global-line"></i> <strong>Check privacy settings:</strong> Set your profile to private on
+        platforms like Instagram and Facebook to control who sees your content.</li>
+      <li><i class="ri-global-line"></i> <strong>Think before you post:</strong> Avoid sharing your phone number, school
+        location, or daily routine publicly.</li>
+      <li><i class="ri-global-line"></i> <strong>Don’t geotag everything:</strong> Turn off automatic location tagging
+        when posting photos or videos.</li>
+      <li><i class="ri-global-line"></i> <strong>Clean your digital footprint:</strong> Remove old accounts or apps you
+        no longer use — these can be exploited.</li>
+      <li><i class="ri-global-line"></i> <strong>Be skeptical of friend requests:</strong> Fake accounts can be used to
+        extract personal info. If you don’t recognize them, don’t accept.</li>
+      <li><i class="ri-global-line"></i> <strong>Use VPN on public Wi-Fi:</strong> Public networks are unsecured and can
+        be easily intercepted by attackers.</li>
+      <li><i class="ri-global-line"></i> <strong>Monitor your accounts:</strong> Check your login activity (e.g.,
+        Gmail’s “Last account activity”) for unauthorized logins.</li>
+    </ul>
+
+    <h3>🚨 Real-World Example</h3>
+    <p>
+      You get an email saying your income tax refund is ready, asking you to click a link to confirm your bank details.
+      The site looks exactly like the real income tax portal — same logos, layout, and colors — but it's a trap.
+      If you enter your details, attackers will siphon money from your account instantly.
+    </p>
+
+    <p><strong>Lesson:</strong> Always access official portals by typing the URL yourself. Never click links from
+      unexpected emails or messages.</p>
+
+  </div>
+</body>
+
+</html>

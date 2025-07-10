@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cybersecurity Introduction Quiz</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #6a82fb, #fc5c7d);
+            color: #343a40;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            text-align: center;
+            animation: fadeIn 1s;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .quiz-container {
+            border: 2px solid #343a40;
+            border-radius: 15px;
+            padding: 30px;
+            background-color: white;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+            width: 80%;
+            max-width: 700px;
+            transition: transform 0.3s;
+            animation: slideIn 0.5s;
+        }
+
+        @keyframes slideIn {
+            from { transform: translateY(-20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .quiz-container:hover {
+            transform: scale(1.02);
+        }
+
+        h1 {
+            color: #FF5733;
+            margin-bottom: 20px;
+        }
+
+        .question {
+            font-size: 24px;
+            margin: 20px 0;
+            opacity: 0;
+            transition: opacity 0.5s;
+        }
+
+        .options {
+            list-style: none;
+            padding: 0;
+        }
+
+        .options li {
+            margin: 10px 0;
+            padding: 15px;
+            border: 2px solid #FF5733;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.2s, box-shadow 0.2s;
+            background-color: #f9f9f9;
+        }
+
+        .options li:hover {
+            background-color: #FF5733;
+            color: white;
+            transform: scale(1.05);
+            box-shadow: 0 0 10px rgba(255, 87, 51, 0.5);
+        }
+
+        button {
+            background-color: #FF5733;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            padding: 10px 20px;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.2s;
+            font-size: 18px;
+        }
+
+        button:hover {
+            background-color: #C70039;
+            transform: scale(1.05);
+        }
+
+        .timer {
+            font-size: 18px;
+            color: #28a745;
+            margin-bottom: 20px;
+        }
+
+        .result {
+            font-size: 20px;
+            margin-top: 20px;
+            color: red;
+        }
+
+        .progress-bar {
+            height: 10px;
+            background-color: #FF5733;
+            transition: width 0.3s;
+            border-radius: 5px;
+        }
+
+        .progress-container {
+            width: 100%;
+            background-color: #e0e0e0;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+
+        .final-score {
+            display: none;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: #f7f7f7;
+            margin-top: 20px;
+            border: 1px solid #ccc;
+        }
+
+        .final-score h2 {
+            color: #343a40;
+        }
+
+        .score-details {
+            font-size: 18px;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="quiz-container">
+        <h1>Cybersecurity Quiz</h1>
+        <div class="timer">Time left: <span id="time">10</span> seconds</div>
+        <div class="progress-container">
+            <div class="progress-bar" id="progressBar" style="width: 0;"></div>
+        </div>
+        <div class="question" id="question"></div>
+        <ul class="options" id="options"></ul>
+        <button id="nextBtn" style="display: none;">Next Question</button>
+        <div class="result" id="result"></div>
+        <div class="final-score" id="finalScore">
+            <h2>Quiz Finished!</h2>
+            <p class="score-details">Your final score is: <span id="finalScoreResult"></span></p>
+            <p class="score-details">Correct Answers: <span id="correctCount"></span></p>
+            <p class="score-details">Incorrect Answers: <span id="incorrectCount"></span></p>
+            <button onclick="location.reload()">Play Again</button>
+        </div>
+    </div>
+
+    <script>
+        const quizData = [
+            {
+                question: "What is the primary purpose of a firewall?",
+                options: ["Prevent unauthorized access", "Speed up the network", "Store data", "Encrypt emails"],
+                answer: "Prevent unauthorized access"
+            },
+            {
+                question: "What does VPN stand for?",
+                options: ["Virtual Private Network", "Vulnerability Protection Network", "Very Private Network", "Variable Private Node"],
+                answer: "Virtual Private Network"
+            },
+            {
+                question: "What is the most common type of cyber attack?",
+                options: ["Phishing", "Malware", "Ransomware", "DDoS"],
+                answer: "Phishing"
+            },
+            {
+                question: "What is two-factor authentication?",
+                options: ["Two passwords", "Password + SMS code", "Password + Email", "Two separate passwords"],
+                answer: "Password + SMS code"
+            },
+            {
+                question: "Which of the following is a strong password?",
+                options: ["password123", "qwerty", "P@55w0rd!", "letmein"],
+                answer: "P@55w0rd!"
+            },
+            {
+                question: "What is social engineering?",
+                options: ["Physical security", "Manipulating people to gain confidential information", "Coding for security", "Data encryption"],
+                answer: "Manipulating people to gain confidential information"
+            },
+            {
+                question: "What does HTTPS stand for?",
+                options: ["Hypertext Transfer Protocol Secure", "Hypertext Transfer Protocol Security", "High Text Transfer Protocol", "Hypertext Transfer Privacy"],
+                answer: "Hypertext Transfer Protocol Secure"
+            },
+            {
+                question: "What is malware?",
+                options: ["Software for performance", "Malicious software designed to harm a computer", "A type of antivirus", "A security protocol"],
+                answer: "Malicious software designed to harm a computer"
+            },
+            {
+                question: "What is phishing?",
+                options: ["A method to improve network speed", "Sending fraudulent emails to steal personal information", "A type of software", "None of the above"],
+                answer: "Sending fraudulent emails to steal personal information"
+            },
+            {
+                question: "What is encryption?",
+                options: ["Changing data to protect it", "Making data more accessible", "Storing data in the cloud", "None of the above"],
+                answer: "Changing data to protect it"
+            }
+        ];
+
+        let currentQuestionIndex = 0;
+        let correctAnswers = 0; 
+        let incorrectAnswers = 0; 
+        let timer;
+
+        function loadQuestion() {
+            clearInterval(timer);
+            const currentQuestion = quizData[currentQuestionIndex];
+            document.getElementById('question').innerText = currentQuestion.question;
+            document.getElementById('question').style.opacity = 1; 
+            const optionsElement = document.getElementById('options');
+            optionsElement.innerHTML = '';
+            currentQuestion.options.forEach(option => {
+                const li = document.createElement('li');
+                li.innerText = option;
+                li.onclick = () => selectOption(option);
+                optionsElement.appendChild(li);
+            });
+            document.getElementById('result').innerText = '';
+            document.getElementById('nextBtn').style.display = 'none';
+            startTimer(10);
+            updateProgress();
+        }
+
+        function startTimer(seconds) {
+            let timeLeft = seconds;
+            document.getElementById('time').innerText = timeLeft;
+            timer = setInterval(() => {
+                timeLeft--;
+                document.getElementById('time').innerText = timeLeft;
+                if (timeLeft <= 0) {
+                    clearInterval(timer);
+                    document.getElementById('result').innerText = "Time's up! You missed the question.";
+                    incorrectAnswers++;
+                    document.getElementById('nextBtn').style.display = 'block';
+                }
+            }, 1000);
+        }
+
+        function selectOption(selectedOption) {
+            clearInterval(timer);
+            const currentQuestion = quizData[currentQuestionIndex];
+            if (selectedOption === currentQuestion.answer) {
+                correctAnswers++;
+                document.getElementById('result').innerText = "Correct!";
+            } else {
+                incorrectAnswers++;
+                document.getElementById('result').innerText = "Wrong! The correct answer was: " + currentQuestion.answer;
+            }
+            document.getElementById('nextBtn').style.display = 'block';
+        }
+
+        function nextQuestion() {
+            currentQuestionIndex++;
+            if (currentQuestionIndex < quizData.length) {
+                loadQuestion();
+            } else {
+                showFinalScore();
+            }
+        }
+
+        function updateProgress() {
+            const progressBar = document.getElementById('progressBar');
+            const progressPercentage = ((currentQuestionIndex + 1) / quizData.length) * 100;
+            progressBar.style.width = progressPercentage + '%';
+        }
+
+        function showFinalScore() {
+            document.getElementById('finalScore').style.display = 'block';
+            document.getElementById('finalScoreResult').innerText = correctAnswers + "/" + quizData.length;
+            document.getElementById('correctCount').innerText = correctAnswers;
+            document.getElementById('incorrectCount').innerText = incorrectAnswers;
+            document.getElementById('quiz-container').style.display = 'none';
+        }
+
+        document.getElementById('nextBtn').onclick = nextQuestion;
+
+        loadQuestion();
+    </script>
+</body>
+
+</html>

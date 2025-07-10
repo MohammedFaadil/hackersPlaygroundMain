@@ -1,0 +1,236 @@
+<!-- 👇 Full HTML — Paste this into your HTML file -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Phishing Animated Video</title>
+  <link rel="icon" href="assets/favicon.png" />
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'VT323', monospace;
+      background-color: #0a0a0a;
+      background-image:
+        linear-gradient(to bottom, rgba(0, 255, 170, 0.05), rgba(0, 255, 140, 0.03)),
+        url('https://www.transparenttextures.com/patterns/green-fibers.png'),
+        radial-gradient(circle at center, #101010 0%, #000000 100%);
+      background-repeat: repeat, repeat, no-repeat;
+      background-size: auto, auto, cover;
+      color: #f5f5f5;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 20px;
+      min-height: 100vh;
+    }
+
+    video {
+      width: 75%;
+      max-width: 960px;
+      border: 3px solid #00ffcc;
+      border-radius: 8px;
+      box-shadow: 0 0 20px rgba(0, 255, 204, 0.3);
+      margin-bottom: 30px;
+    }
+
+    .btn {
+      font-family: 'VT323', monospace;
+      padding: 12px 24px;
+      font-size: 1.4rem;
+      background-color: #00ffcc;
+      color: #000;
+      border: none;
+      border-radius: 8px;
+      text-decoration: none;
+      cursor: pointer;
+      box-shadow: 0 0 10px #00ffcc, 0 0 30px #00ffcc55;
+      transition: background 0.3s ease;
+      margin-top: 10px;
+    }
+
+    .btn:hover {
+      background: #fff;
+      color: #000;
+    }
+
+    #quiz-modal,
+    #wrong-answer-popup,
+    #video-end-popup {
+      display: none;
+      position: fixed;
+      top: 20%;
+      left: 30%;
+      width: 40%;
+      background: rgba(0, 0, 0, 0.95);
+      border: 2px solid #00ffcc;
+      z-index: 1000;
+      padding: 20px;
+      box-shadow: 0 0 20px #00ffcc;
+      color: #00ffcc;
+      border-radius: 12px;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    #quiz-modal h3,
+    #wrong-answer-popup p {
+      font-size: 1.8rem;
+      text-shadow: 0 0 5px #00ffcc;
+      text-align: center;
+    }
+
+    #quiz-options button,
+    #wrong-answer-popup button,
+    #video-end-popup button {
+      background-color: #111;
+      color: #00ffcc;
+      border: 1px solid #00ffcc;
+      margin: 10px 5px;
+      padding: 10px 20px;
+      font-size: 1.1rem;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+      font-family: 'VT323', monospace;
+    }
+
+    #quiz-options button:hover,
+    #wrong-answer-popup button:hover,
+    #video-end-popup button:hover {
+      background-color: #00ffcc;
+      color: #000;
+    }
+
+    #video-end-popup {
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      background-color: rgba(0, 0, 0, 0.9);
+      display: none;
+      z-index: 9999;
+      justify-content: center;
+      align-items: center;
+    }
+
+    @media (max-width: 768px) {
+      video {
+        width: 90%;
+      }
+
+      #quiz-modal,
+      #wrong-answer-popup {
+        width: 80%;
+        left: 10%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <video id="player--video" autoplay muted playsinline controls preload="auto">
+    <source src="https://res.cloudinary.com/dn8vbfkqr/video/upload/v1752053293/Untitled_Project_qeee8h.mp4" type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
+
+  <a class="btn" id="player-btn--skip" href="sam_message.html">Skip section</a>
+
+  <!-- Quiz Modal -->
+  <div id="quiz-modal">
+    <h3 id="quiz-question">Question?</h3>
+    <div id="quiz-options"></div>
+  </div>
+
+  <!-- Wrong Answer Popup -->
+  <div id="wrong-answer-popup">
+    <p>❌ Incorrect answer. Please try again.</p>
+    <button onclick="retryQuestion()">Retry</button>
+  </div>
+
+  <!-- End Video Popup -->
+  <div id="video-end-popup">
+    <p>✅ All questions answered! Ready for the mission?</p>
+    <button onclick="window.location.href='sam_message.html'">Proceed →</button>
+  </div>
+
+  <script>
+    const video = document.getElementById('player--video');
+    const modal = document.getElementById('quiz-modal');
+    const questionText = document.getElementById('quiz-question');
+    const optionsContainer = document.getElementById('quiz-options');
+    const endPopup = document.getElementById('video-end-popup');
+    const wrongPopup = document.getElementById('wrong-answer-popup');
+
+    const quizSchedule = [
+      {
+        question: "What is ransomware?",
+        options: [
+          "A type of firewall",
+          "A software update tool",
+          "Malware that encrypts files and demands payment",
+          "A cloud storage service"
+        ],
+        answer: "Malware that encrypts files and demands payment"
+      },
+      {
+        question: "What is the typical goal of a ransomware attack?",
+        options: [
+          "To install an antivirus",
+          "To increase download speed",
+          "To demand a ransom in exchange for access to data",
+          "To clean up system junk files"
+        ],
+        answer: "To demand a ransom in exchange for access to data"
+      }
+    ];
+
+    let currentQuizIndex = 0;
+
+    video.addEventListener('ended', () => {
+      currentQuizIndex = 0;
+      showQuestion(quizSchedule[currentQuizIndex]);
+    });
+
+    function showQuestion(quiz) {
+      modal.style.display = 'flex';
+      questionText.innerText = quiz.question;
+      optionsContainer.innerHTML = '';
+
+      quiz.options.forEach(option => {
+        const btn = document.createElement('button');
+        btn.innerText = option;
+        btn.onclick = () => {
+          if (option === quiz.answer) {
+            modal.style.display = 'none';
+            currentQuizIndex++;
+            if (currentQuizIndex < quizSchedule.length) {
+              showQuestion(quizSchedule[currentQuizIndex]);
+            } else {
+              endPopup.style.display = 'flex';
+            }
+          } else {
+            modal.style.display = 'none';
+            wrongPopup.style.display = 'flex';
+          }
+        };
+        optionsContainer.appendChild(btn);
+      });
+    }
+
+    function retryQuestion() {
+      wrongPopup.style.display = 'none';
+      showQuestion(quizSchedule[currentQuizIndex]);
+    }
+  </script>
+
+</body>
+
+</html>

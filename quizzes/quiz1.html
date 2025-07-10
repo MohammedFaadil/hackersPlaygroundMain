@@ -1,0 +1,227 @@
+<!-- quizzes/quiz1.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cybersecurity Introduction Quiz</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+            color: #343a40;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+            text-align: center;
+            animation: fadeIn 1s;
+            min-height: 100vh;
+            height: auto;
+            flex-direction: column;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        .quiz-container {
+            border: 2px solid #343a40;
+            border-radius: 15px;
+            padding: 30px;
+            background-color: #e3f9fb;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+            width: 80%;
+            max-width: 1200px;
+            transition: transform 0.3s;
+            animation: slideIn 0.5s;
+            opacity: 90%;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateY(-20px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .quiz-container:hover {
+            transform: scale(1.02);
+        }
+
+        h1 {
+            color: #000000;
+            margin-bottom: 20px;
+        }
+
+        .question {
+            font-size: 24px;
+            margin: 20px 0;
+            opacity: 0;
+            transition: opacity 0.5s;
+            font-family: sans-serif;
+            font-weight: bold;
+        }
+
+        .options {
+            list-style: none;
+            padding: 0;
+            font-family: sans-serif;
+            font-size: large;
+        }
+
+        .options li {
+            margin: 10px 0;
+            padding: 15px;
+            border: 2px solid #000000;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.2s, box-shadow 0.2s;
+            background-color: #f9f9f9;
+        }
+
+        .options li:hover {
+            background-color: #001f3f;
+            color: white;
+            transform: scale(1.05);
+            box-shadow: 0 0 10px rgba(128, 198, 248, 0.5);
+        }
+
+        button {
+            background-color: #FF5733;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            padding: 10px 20px;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.2s;
+            font-size: 18px;
+        }
+
+        button:hover {
+            background-color: #C70039;
+            transform: scale(1.05);
+        }
+
+        .timer {
+            font-size: 18px;
+            color: #28a745;
+            margin-bottom: 20px;
+        }
+
+        .result {
+            font-size: 20px;
+            margin-top: 20px;
+            color: red;
+        }
+
+        .progress-bar {
+            height: 10px;
+            background-color: #FF5733;
+            transition: width 0.3s;
+            border-radius: 5px;
+        }
+
+        .progress-container {
+            width: 100%;
+            background-color: #f1eaea;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+
+        .final-score {
+            display: none;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: #f7f7f7;
+            margin-top: 20px;
+            border: 1px solid #ccc;
+        }
+
+        .final-score h2 {
+            color: #343a40;
+        }
+
+        .score-details {
+            font-size: 18px;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+
+<body
+    style="background-image: url('/images/hck.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat; height: 1100px;">
+
+    <div class="quiz-container" id="quiz-container">
+        <h1>Cybersecurity Introduction Quiz</h1>
+        <div class="timer">Time left: <span id="time">10</span> seconds</div>
+        <div class="progress-container">
+            <div class="progress-bar" id="progressBar" style="width: 0;"></div>
+        </div>
+        <div class="question" id="question"></div>
+        <ul class="options" id="options"></ul>
+        <button id="nextBtn" style="display: none;">Next Question</button>
+        <div class="result" id="result"></div>
+        <div class="final-score" id="finalScore">
+            <h2>Quiz Finished!</h2>
+            <p class="score-details">Your final score is: <span id="finalScoreResult"></span></p>
+            <p class="score-details">Correct Answers: <span id="correctCount"></span></p>
+            <p class="score-details">Incorrect Answers: <span id="incorrectCount"></span></p>
+            <button onclick="location.reload()">Play Again</button>
+        </div>
+    </div>
+    <div class="quiz-container" id="leaderboardSection" style="margin-top: 30px; display: none;">
+        <h2>🏆 Leaderboard</h2>
+        <ul id="leaderboardList" style="font-size: 18px; list-style: none; padding: 0;"></ul>
+    </div>
+
+    <!-- QUIZ LOGIC + FIREBASE SAVE -->
+
+    <script>
+        const quizData = [
+            {
+                question: "What is the primary purpose of a firewall?",
+                options: ["Prevent unauthorized access", "Speed up the network", "Store data", "Encrypt emails"],
+                answer: "Prevent unauthorized access"
+            },
+            {
+                question: "What does VPN stand for?",
+                options: ["Virtual Private Network", "Vulnerability Protection Network", "Very Private Network", "Variable Private Node"],
+                answer: "Virtual Private Network"
+            },
+            {
+                question: "What is the most common type of cyber attack?",
+                options: ["Phishing", "Malware", "Ransomware", "DDoS"],
+                answer: "Phishing"
+            },
+            {
+                question: "What is two-factor authentication?",
+                options: ["Two passwords", "Password + SMS code", "Password + Email", "Two separate passwords"],
+                answer: "Password + SMS code"
+            },
+            {
+                question: "Which of the following is a strong password?",
+                options: ["password123", "qwerty", "P@55w0rd!", "letmein"],
+                answer: "P@55w0rd!"
+            }
+        ];
+    </script>
+
+    <script type="module" src="../scripts/quiz.js"></script>
+
+
+</body>
+
+</html>

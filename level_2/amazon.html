@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Gmail - HR Bonus Alert</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f1f3f4;
+    }
+
+    .gmail-container {
+      max-width: 700px;
+      margin: 60px auto;
+      background-color: #fff;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      border-radius: 8px;
+    }
+
+    .gmail-header {
+      background-color: #d93025;
+      padding: 10px 20px;
+      color: white;
+      font-size: 18px;
+      border-top-left-radius: 8px;
+      border-top-right-radius: 8px;
+    }
+
+    .email-meta {
+      padding: 20px;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .email-meta p {
+      margin: 4px 0;
+      font-size: 14px;
+      color: #555;
+    }
+
+    .email-body {
+      padding: 20px;
+    }
+
+    .email-body h2 {
+      color: #202124;
+      font-size: 22px;
+      margin-bottom: 15px;
+    }
+
+    .email-body p {
+      font-size: 16px;
+      color: #444;
+      line-height: 1.6;
+    }
+
+    .phish-link {
+      display: inline-block;
+      margin-top: 25px;
+      padding: 12px 24px;
+      background-color: #1a73e8;
+      color: #fff;
+      font-weight: bold;
+      text-decoration: none;
+      border-radius: 6px;
+      transition: background-color 0.3s ease;
+    }
+
+    .phish-link:hover {
+      background-color: #174ea6;
+    }
+
+    .footer {
+      padding: 15px;
+      text-align: center;
+      font-size: 13px;
+      color: #888;
+      background-color: #f1f1f1;
+      border-bottom-left-radius: 8px;
+      border-bottom-right-radius: 8px;
+    }
+
+    @media screen and (max-width: 600px) {
+      .gmail-container {
+        margin: 20px;
+      }
+      .email-body h2 {
+        font-size: 18px;
+      }
+      .email-body p,
+      .phish-link {
+        font-size: 14px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="gmail-container">
+    <div class="gmail-header">
+      New Message from HR Department
+    </div>
+
+    <div class="email-meta">
+      <p><strong>From:</strong> hr-department@corporate-gmail.com</p>
+      <p><strong>To:</strong> you@example.com</p>
+      <p><strong>Subject:</strong> 🎁 Year-End Bonus Confirmation | Action Required</p>
+    </div>
+
+    <div class="email-body">
+      <h2>Congratulations! You're Eligible for a Year-End HR Bonus 🎉</h2>
+      <p>
+        As part of our employee recognition initiative, you're entitled to a bonus payout worth ₹50,000.
+        Kindly confirm your employee details by clicking the secure portal link below.
+      </p>
+
+      <p><strong>Note:</strong> This link will expire in 24 hours. Please act fast to avoid missing this opportunity.</p>
+
+      <a href="hint_2.html" class="phish-link">👉 Claim My Bonus Now</a>
+    </div>
+
+    <div class="footer">
+      Gmail · Do not reply to this message · © 2025 Company HR
+    </div>
+  </div>
+</body>
+</html>

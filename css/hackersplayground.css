@@ -1,0 +1,609 @@
+/* Reset styles */
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ol,
+ul {
+  margin: 0;
+  padding: 0;
+  font-weight: normal;
+}
+
+/* Global styles */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f5f5f5;
+  color: #333333;
+  line-height: 1.5;
+}
+.navbar-toggler{
+  background-color: white;
+}
+/* CSS for increased navbar height when sidebar is open */
+/* CSS for increased navbar height when toggled */
+.navbar-expand-lg{
+  height: 350px; /* Height when the navbar is expanded */
+}
+
+/* Default navbar height */
+.navbar {
+  height: 120px; /* Default height */
+}
+
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+  .navbar {
+    height: 350px; /* Default height for small screens */
+  }
+
+  .navbar-brand img {
+    max-width: 220px; /* Smaller logo on mobile */
+  }
+
+  .navbar-nav .nav-link {
+    font-size: 1rem; /* Adjust font size for nav links */
+  }
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+
+}
+
+.banner {
+  align-items: center;
+  font-size: 24px;
+  font-weight: bold;
+
+}
+
+.banner span {
+  border-bottom: 2px solid #FBAE1F;
+  padding-bottom: 5px;
+}
+
+.smalllinks {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 20px 0;
+}
+
+.smalllinks .link {
+  flex-basis: 30%;
+  text-align: center;
+}
+
+.smalllinks .link a {
+  text-decoration: none;
+  color: #333333;
+}
+
+.section {
+  margin-bottom: 40px;
+}
+
+.quotation {
+  font-style: italic;
+}
+
+.citation {
+  margin-top: 5px;
+}
+
+.screenshot img {
+  width: 100%;
+  height: auto;
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    padding: 10px;
+  }
+
+  .smalllinks {
+    flex-wrap: wrap;
+  }
+
+  .smalllinks .link {
+    flex-basis: 100%;
+    margin-bottom: 10px;
+  }
+}
+
+#hackersplaygroundcontain {
+  text-align: center;
+  max-width: 400px;
+  margin: 15px auto -40px;
+}
+
+.logo {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+.section.copyright {
+  text-align: center;
+  padding: 20px;
+}
+
+.section.copyright p {
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 26px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #333333;
+  margin: 0;
+}
+
+@media screen and (max-width: 768px) {
+  .section.copyright {
+    padding: 10px;
+  }
+}
+
+/********************/
+/********************/
+/*** GRID  LAYOUT ***/
+/********************/
+/********************/
+
+.gridcontainer {
+  width: 1425px;
+  font-size: 0;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  vertical-align: top;
+}
+
+.gridcontainer.fullpage {
+  margin-bottom: 100px;
+}
+
+.gridunit,
+.gridparent {
+  display: inline-block;
+}
+
+.gridunit {
+  margin: 30px 25px;
+
+  font-size: 0;
+}
+
+.gridunit>a {
+  font-size: 0;
+}
+
+.gridunit.c1 {
+  width: 425px;
+}
+
+.gridparent.c1 {
+  max-width: 475px;
+}
+
+.gridunit.c2 {
+  width: 900px;
+}
+
+.gridparent.c2 {
+  max-width: 950px;
+}
+
+.gridunit.c3 {
+  display: block;
+}
+
+.gridparent.c3 {
+  width: 100%;
+}
+
+.gridcontainer .screenshot img {
+  width: 100%;
+}
+
+.reportcaptions {
+  font-size: 16px;
+  color: #FBAE1F;
+  text-transform: uppercase;
+  display: block;
+  height: 34px;
+  margin-bottom: -4px;
+  letter-spacing: 3px;
+  position: relative;
+}
+
+.reportcaptions span {
+  display: block;
+  position: absolute;
+  bottom: 0;
+}
+
+.reportcaptions span.left {
+  left: 0;
+}
+
+.reportcaptions span.right {
+  right: 0;
+}
+
+.quotecontain {
+  text-transform: uppercase;
+}
+
+.quotation {
+  font-size: 22px;
+  color: #FCC451;
+  letter-spacing: 3px;
+  line-height: 48px;
+}
+
+.citation {
+  margin-top: 15px;
+}
+
+.quotecontain .gridcaptionbold {
+  line-height: 24px;
+}
+
+.gridcaptionbold {
+  color: #333333;
+  font-weight: bold;
+  font-size: 18px;
+  letter-spacing: 3px;
+}
+
+@media (max-width: 1450px) {
+  .gridcontainer {
+    max-width: 950px;
+  }
+
+  .gridunit.hidetwocolumn {
+    display: none;
+  }
+}
+
+@media (min-width: 976px) {
+  .gridunit.quote {
+    height: 227px;
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    position: relative;
+  }
+
+  .quotecontain {
+    position: relative;
+    top: 25%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+  }
+}
+
+@media (max-width: 975px) {
+
+  .gridunit.hideonecolumn,
+  .gridunit .hideonecolumn {
+    display: none;
+  }
+
+  .gridcontainer,
+  .gridcontainer>.gridparent {
+    width: auto;
+    max-width: inherit;
+  }
+
+  .gridcontainer>.gridunit,
+  .gridcontainer>.gridparent,
+  .gridcontainer>.gridparent>.gridunit {
+    display: block;
+    width: auto;
+  }
+
+  .quotecontain {
+    margin: 60px auto;
+  }
+
+  .gridunit.fullbleed {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+.quotecontain {
+  text-align: center;
+}
+
+.quotation {
+  text-align: center;
+}
+
+.citation {
+  text-align: center;
+}
+
+.btn {
+  width: 150px;
+  /* Set desired width */
+  white-space: nowrap;
+  /* Keep text in a single line */
+}
+.mybutton1:hover, .mybutton2:hover {
+  background-color: #ff005b; /* Hover background color */
+  color: white; /* Text color on hover */
+  border-color: #ff005b;
+}
+
+.btn{
+  border-color: #000000;
+  background-color: #61fffd;
+  color: #001f3f;
+  font-weight: bold;
+}
+
+#welcome {
+  text-align: center;
+}
+
+#welcome h2 {
+  display: inline-block;
+  /* Keeps the animation centered */
+  font-size: 2em;
+  color: black;
+  font-weight: bold;
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 3px solid;
+  /* Solid cursor effect */
+  animation: typing 5s steps(20, end) infinite, blink-caret 0.75s step-end;
+}
+
+@keyframes typing {
+  0% {
+    width: 0;
+  }
+
+  50% {
+    width: 100%;
+  }
+
+  100% {
+    width: 0;
+  }
+}
+
+@keyframes blink-caret {
+
+  from,
+  to {
+    border-color: transparent;
+  }
+
+  50% {
+    border-color: black;
+  }
+}
+
+
+#hackersplaygroundcontain {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#hackersplaygroundimg {
+  width: 300px;
+  height: 300px;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.1);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Import a fancy font (like Roboto or Poppins) */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+/* General styles */
+body {
+  font-family: 'Roboto', sans-serif;
+}
+
+#intro {
+  max-width: 1400px;
+  margin: auto;
+  padding: 30px;
+  background-color: #f9ffff;
+  border-radius: 10px;
+  box-shadow: 0px 30px 30px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+#intro h2 {
+  font-size: 2.4em;
+  color: #333;
+  font-weight: 700;
+  margin: 40px 0 20px;
+  animation: fadeIn 1.5s ease-in-out;
+}
+
+.content-section {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 20px;
+  margin: 20px 0;
+}
+
+.text-content {
+  flex: 1;
+  text-align: left;
+  animation: fadeInText 2s ease-in-out forwards;
+}
+
+.text-content p,
+.text-content ul {
+  font-size: 1.15em;
+  color: #555;
+  line-height: 1.6;
+  opacity: 0;
+  animation: fadeText 1.8s ease forwards;
+}
+
+.text-content ul {
+  padding-left: 20px;
+}
+
+.text-content ul li {
+  margin-bottom: 8px;
+  list-style-type: disc;
+}
+
+.intro-image {
+  width: 280px;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+  opacity: 0;
+  animation: fadeInImage 1.8s ease forwards;
+}
+
+/* Keyframes for animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeText {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInImage {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@media (max-width: 768px) {
+  .content-section {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .intro-image {
+    width: 90%;
+  }
+}
+
+#Motto {
+  text-align: center;
+  text-decoration: solid;
+  font-family: 'Cursive', sans-serif;
+  /* Change to a cursive font */
+  margin: 20px;
+  padding: 20px;
+
+  /* Border for visual appeal */
+  border-radius: 10px;
+  /* Rounded corners */
+  background-color: #f9ffff;
+  /* Light background color */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  /* Subtle shadow for depth */
+  transition: transform 0.3s ease;
+  /* Animation effect on hover */
+}
+
+#Motto:hover {
+  transform: scale(1.010);
+  /* Slightly enlarge on hover */
+}
+
+#intro:hover {
+  transform: scale(1.010);
+  transition: transform 0.5s ease;
+  /* Slightly enlarge on hover */
+}
+
+h2 {
+  color: #000000;
+  
+  /* Header color */
+  animation: fadeIn 1s;
+  /* Fade-in effect for the header */
+}
+
+p {
+  color: #333;
+  /* Text color */
+  animation: slideIn 1s;
+  /* Slide-in effect for the paragraph */
+}
+
+/* Keyframe animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}

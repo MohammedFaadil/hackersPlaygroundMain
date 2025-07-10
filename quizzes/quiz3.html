@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cybersecurity Introduction Quiz</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #343a40;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            text-align: center;
+            animation: fadeIn 1s;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        .quiz-container {
+            border: 2px solid #343a40;
+            border-radius: 15px;
+            padding: 30px;
+            background-color: #e3f9fb;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+            width: 80%;
+            max-width: 1200px;
+            transition: transform 0.3s;
+            animation: slideIn 0.5s;
+            opacity: 90%;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateY(-20px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .quiz-container:hover {
+            transform: scale(1.02);
+        }
+
+        h1 {
+            color: #000000;
+            margin-bottom: 20px;
+        }
+
+        .question {
+            font-size: 24px;
+            margin: 20px 0;
+            opacity: 0;
+            transition: opacity 0.5s;
+            font-family: sans-serif;
+            font-weight: bold;
+        }
+
+        .options {
+            list-style: none;
+            padding: 0;
+            font-family: sans-serif;
+            font-size: large;
+        }
+
+        .options li {
+            margin: 10px 0;
+            padding: 15px;
+            border: 2px solid #000000;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.2s, box-shadow 0.2s;
+            background-color: #f9f9f9;
+        }
+
+        .options li:hover {
+            background-color: #001f3f;
+            color: white;
+            transform: scale(1.05);
+            box-shadow: 0 0 10px rgba(128, 198, 248, 0.5);
+        }
+
+        button {
+            background-color: #FF5733;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            padding: 10px 20px;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.2s;
+            font-size: 18px;
+        }
+
+        button:hover {
+            background-color: #C70039;
+            transform: scale(1.05);
+        }
+
+        .timer {
+            font-size: 18px;
+            color: #28a745;
+            margin-bottom: 20px;
+        }
+
+        .result {
+            font-size: 20px;
+            margin-top: 20px;
+            color: red;
+        }
+
+        .progress-bar {
+            height: 10px;
+            background-color: #FF5733;
+            transition: width 0.3s;
+            border-radius: 5px;
+        }
+
+        .progress-container {
+            width: 100%;
+            background-color: #f1eaea;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+
+        .final-score {
+            display: none;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: #f7f7f7;
+            margin-top: 20px;
+            border: 1px solid #ccc;
+        }
+
+        .final-score h2 {
+            color: #343a40;
+        }
+
+        .score-details {
+            font-size: 18px;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+
+<body
+    style="background-image: url('/images/hck.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat; height: 1100px;">
+
+    <div class="quiz-container">
+        <h1>Ethical Hacking Fundamentals Quiz</h1>
+        <div class="timer">Time left: <span id="time">10</span> seconds</div>
+        <div class="progress-container">
+            <div class="progress-bar" id="progressBar" style="width: 0;"></div>
+        </div>
+        <div class="question" id="question"></div>
+        <ul class="options" id="options"></ul>
+        <button id="nextBtn" style="display: none;" onclick="nextQuestion()">Next Question</button>
+        <div class="result" id="result"></div>
+        <div class="final-score" id="finalScore">
+            <h2>Quiz Finished!</h2>
+            <p class="score-details">Your final score is: <span id="finalScoreResult"></span></p>
+            <p class="score-details">Correct Answers: <span id="correctCount"></span></p>
+            <p class="score-details">Incorrect Answers: <span id="incorrectCount"></span></p>
+            <button onclick="location.reload()">Play Again</button>
+        </div>
+    </div>
+
+    <script>
+        const quizData = [
+            {
+                question: "What is the primary goal of ethical hacking?",
+                options: [
+                    "To steal sensitive information",
+                    "To test and secure systems against vulnerabilities",
+                    "To disrupt network services",
+                    "To create malicious software"
+                ],
+                answer: "To test and secure systems against vulnerabilities"
+            },
+            {
+                question: "Which of the following is a common technique used by hackers to gain unauthorized access to systems?",
+                options: [
+                    "Phishing",
+                    "Data encryption",
+                    "Regular software updates",
+                    "Multi-factor authentication"
+                ],
+                answer: "Phishing"
+            },
+            {
+                question: "What does the term 'social engineering' refer to in the context of hacking?",
+                options: [
+                    "Using algorithms to break passwords",
+                    "Manipulating individuals to gain confidential information",
+                    "Attacking software vulnerabilities",
+                    "Analyzing network traffic"
+                ],
+                answer: "Manipulating individuals to gain confidential information"
+            },
+            {
+                question: "What is a common tool used for network scanning?",
+                options: [
+                    "Wireshark",
+                    "Microsoft Word",
+                    "Photoshop",
+                    "PowerPoint"
+                ],
+                answer: "Wireshark"
+            },
+            {
+                question: "Which type of malware is designed to replicate itself and spread to other computers?",
+                options: [
+                    "Trojan horse",
+                    "Worm",
+                    "Spyware",
+                    "Adware"
+                ],
+                answer: "Worm"
+            },
+            {
+                question: "What is a 'zero-day' vulnerability?",
+                options: [
+                    "A vulnerability that has been patched",
+                    "A previously unknown vulnerability that is exploited before it is known to the vendor",
+                    "A vulnerability that is easy to exploit",
+                    "A vulnerability that only affects older systems"
+                ],
+                answer: "A previously unknown vulnerability that is exploited before it is known to the vendor"
+            },
+            {
+                question: "What is the purpose of penetration testing?",
+                options: [
+                    "To create backups of data",
+                    "To identify and fix vulnerabilities in systems",
+                    "To monitor network traffic",
+                    "To improve software performance"
+                ],
+                answer: "To identify and fix vulnerabilities in systems"
+            },
+            {
+                question: "Which of the following describes 'SQL injection'?",
+                options: [
+                    "Inserting malicious SQL queries into input fields to manipulate databases",
+                    "Encrypting SQL statements",
+                    "A method of securing databases",
+                    "A programming language used for database management"
+                ],
+                answer: "Inserting malicious SQL queries into input fields to manipulate databases"
+            },
+            {
+                question: "What is the main purpose of a keylogger?",
+                options: [
+                    "To encrypt data",
+                    "To monitor and record keystrokes",
+                    "To speed up internet connections",
+                    "To prevent unauthorized access"
+                ],
+                answer: "To monitor and record keystrokes"
+            },
+            {
+                question: "What does 'DDoS' stand for?",
+                options: [
+                    "Distributed Data Operating System",
+                    "Distributed Denial of Service",
+                    "Digital Data Overload Service",
+                    "Dynamic Domain Operating System"
+                ],
+                answer: "Distributed Denial of Service"
+            },
+            {
+                question: "What is an exploit in hacking?",
+                options: [
+                    "A method to secure data",
+                    "A piece of software designed to take advantage of a vulnerability",
+                    "A type of encryption",
+                    "A network monitoring tool"
+                ],
+                answer: "A piece of software designed to take advantage of a vulnerability"
+            },
+        ];
+
+
+        let currentQuestionIndex = 0;
+        let correctAnswers = 0;
+        let incorrectAnswers = 0;
+        let timer;
+
+        function loadQuestion() {
+            clearInterval(timer);
+            const currentQuestion = quizData[currentQuestionIndex];
+            document.getElementById('question').innerText = `Question ${currentQuestionIndex + 1}: ${currentQuestion.question}`;
+            document.getElementById('question').style.opacity = 1;
+            const optionsElement = document.getElementById('options');
+            optionsElement.innerHTML = '';
+            currentQuestion.options.forEach(option => {
+                const li = document.createElement('li');
+                li.innerText = option;
+                li.onclick = () => selectOption(option);
+                optionsElement.appendChild(li);
+            });
+            document.getElementById('result').innerText = '';
+            document.getElementById('nextBtn').style.display = 'none';
+            startTimer(10);
+            updateProgress();
+        }
+
+        function selectOption(selectedOption) {
+            const currentQuestion = quizData[currentQuestionIndex];
+            clearInterval(timer);
+            const resultElement = document.getElementById('result');
+
+            if (selectedOption === currentQuestion.answer) {
+                correctAnswers++;
+                resultElement.innerText = "Correct!";
+            } else {
+                incorrectAnswers++;
+                resultElement.innerText = `Incorrect! The correct answer was: ${currentQuestion.answer}`;
+            }
+
+            document.getElementById('nextBtn').style.display = 'block';
+            updateScore();
+        }
+
+        function nextQuestion() {
+            currentQuestionIndex++;
+            if (currentQuestionIndex < quizData.length) {
+                loadQuestion();
+            } else {
+                showFinalScore();
+            }
+        }
+
+        function startTimer(duration) {
+            let timeLeft = duration;
+            document.getElementById('time').innerText = timeLeft;
+
+            timer = setInterval(() => {
+                timeLeft--;
+                document.getElementById('time').innerText = timeLeft;
+                if (timeLeft <= 0) {
+                    clearInterval(timer);
+                    document.getElementById('result').innerText = "Time's up! The correct answer was: " + quizData[currentQuestionIndex].answer;
+                    document.getElementById('nextBtn').style.display = 'block';
+                }
+            }, 1000);
+        }
+
+        function updateProgress() {
+            const progressBar = document.getElementById('progressBar');
+            const progressWidth = ((currentQuestionIndex + 1) / quizData.length) * 100;
+            progressBar.style.width = progressWidth + '%';
+        }
+
+        function updateScore() {
+            document.getElementById('correctCount').innerText = correctAnswers;
+            document.getElementById('incorrectCount').innerText = incorrectAnswers;
+        }
+
+        function showFinalScore() {
+            clearInterval(timer);
+            document.getElementById('finalScore').style.display = 'block';
+            document.getElementById('finalScoreResult').innerText = `${correctAnswers} out of ${quizData.length}`;
+        }
+
+        loadQuestion();
+    </script>
+</body>
+
+</html>

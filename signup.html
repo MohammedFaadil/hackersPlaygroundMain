@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create Account</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body, html {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: url('https://mdbcdn.b-cdn.net/img/Photos/new-templates/search-box/img4.webp') no-repeat center center;
+      background-size: cover;
+    }
+
+    .card {
+      background-color: #fff;
+      border-radius: 15px;
+      width: 100%;
+      max-width: 500px;
+      padding: 30px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .form-title {
+      font-size: 24px;
+      text-align: center;
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    .form-outline {
+      margin-bottom: 20px;
+    }
+
+    .form-outline label {
+      display: block;
+      margin-bottom: 5px;
+      color: #555;
+    }
+
+    .form-outline input {
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+    }
+
+    .form-check {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+      font-size: 14px;
+    }
+
+    .form-check input {
+      margin-right: 10px;
+    }
+
+    .btn-register {
+      width: 100%;
+      padding: 12px;
+      font-size: 18px;
+      font-weight: bold;
+      color: #fff;
+      background: #487ee5;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .btn-register:hover {
+      background: #218838;
+    }
+
+    .login-link {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 14px;
+      color: #777;
+    }
+
+    .login-link a {
+      color: #333;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    .login-link a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body style="background-image: url(/images/hck.jpg); width: 100%;">
+  <div class="card" style="width: 500px; opacity: 90%;">
+    <h2 class="form-title">Create an Account</h2>
+    <form id="signup-form">
+      <div class="form-outline">
+        <label for="name">Your Name</label>
+        <input type="text" id="name" name="name" required>
+      </div>
+      <div class="form-outline">
+        <label for="email">Your Email</label>
+        <input type="email" id="email" name="email" required>
+      </div>
+      <div class="form-outline">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" required>
+      </div>
+      <div class="form-outline">
+        <label for="repeat-password">Repeat your password</label>
+        <input type="password" id="repeat-password" name="repeat-password" required>
+      </div>
+      <div class="form-check">
+        <input type="checkbox" id="terms" required>
+        <label for="terms">I agree to all statements in <a href="#">Terms of Service</a></label>
+      </div>
+      <button type="submit" class="btn-register">Register</button>
+      <p class="login-link">Already have an account? <a href="/signin.html">Login here</a></p>
+    </form>
+  </div>
+
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/11.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/11.10.0/firebase-auth.js"></script>
+
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-app.js";
+    import {
+      getAuth,
+      createUserWithEmailAndPassword,
+      updateProfile
+    } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-auth.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyBt7je8Ga9fKVJ7Pu2Ok8HvbFaLV5Qe1ts",
+      authDomain: "hackersplayground-ca1a1.firebaseapp.com",
+      projectId: "hackersplayground-ca1a1",
+      storageBucket: "hackersplayground-ca1a1.firebasestorage.app",
+      messagingSenderId: "597874916220",
+      appId: "1:597874916220:web:85ad84575aac58ce4c82f9",
+      measurementId: "G-PSC705VYNS"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+
+    document.getElementById('signup-form').addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+      const repeatPassword = document.getElementById('repeat-password').value;
+
+      if (password !== repeatPassword) {
+        alert("Passwords do not match!");
+        return;
+      }
+
+      try {
+        const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+        await updateProfile(userCredential.user, { displayName: name });
+
+        alert("Signup successful! Please login.");
+        window.location.href = "/signin.html";
+      } catch (error) {
+        alert("Signup failed: " + error.message);
+      }
+    });
+  </script>
+</body>
+</html>

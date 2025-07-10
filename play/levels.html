@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Hacker's Playground</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Share Tech Mono', monospace;
+      background: radial-gradient(ellipse at center, #000000 0%, #0a0a0a 100%);
+      color: #00ffcc;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 2rem;
+      text-shadow: 0 0 10px #00ffcc;
+    }
+
+    .level-container {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .btnp {
+      text-decoration: none;
+      color: #0ff;
+      background: transparent;
+      border: 2px solid #00ffcc;
+      padding: 0.8rem 2rem;
+      font-size: 1.2rem;
+      text-align: center;
+      transition: 0.3s ease-in-out;
+      border-radius: 5px;
+      box-shadow: 0 0 10px #00ffcc;
+      cursor: pointer;
+    }
+
+    .btnp:hover {
+      background-color: #00ffcc;
+      color: #000;
+      transform: scale(1.1);
+      box-shadow: 0 0 20px #00ffcc;
+    }
+
+    #audioControl {
+      margin-top: 2rem;
+      color: #aaa;
+      font-size: 0.9rem;
+      cursor: pointer;
+    }
+
+    .glow-line {
+      position: absolute;
+      width: 100%;
+      height: 3px;
+      background: #00ffcc;
+      animation: glow 2s linear infinite;
+      top: 0;
+      left: 0;
+    }
+
+    @keyframes glow {
+      0% { transform: translateX(-100%); }
+      100% { transform: translateX(100%); }
+    }
+  </style>
+</head>
+<body>
+  <div class="glow-line"></div>
+  <h1> Hacker's PlayZone</h1>
+
+  <div class="level-container">
+    <button class="btnp" onclick="startLevel('/level_1/level_1.html')">Level 1: Phishing Attacks</button>
+    <button class="btnp" onclick="startLevel('/level_2/level_2.html')">Level 2: Ransomware Attacks!</button>
+    <button class="btnp" onclick="startLevel('/level_3/level_3.html')">Level 3: Deep Exploit</button>
+    <button class="btnp" onclick="startLevel('/level_4/level_4.html')">Level 4: Root Master</button>
+    <button class="btnp" onclick="startLevel('/level_final/final_boss.html')">💀 Final Level: Black ICE</button>
+  </div>
+
+  <div id="audioControl" onclick="toggleAudio()">🎵 Click to Toggle Background Music</div>
+
+  <!-- Background Music -->
+  <audio id="bgAudio" preload="auto">
+    <source src="/level_1/assets/bg-audio.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+
+  <script>
+    let targetURL = '';
+
+    function toggleAudio() {
+      const audio = document.getElementById('bgAudio');
+      if (audio.paused) {
+        audio.play();
+      } else {
+        audio.pause();
+      }
+    }
+
+    function startLevel(url) {
+      const audio = document.getElementById('bgAudio');
+      targetURL = url;
+
+      // Reset and play from start
+      audio.currentTime = 0;
+
+      // Disable buttons during audio
+      document.querySelectorAll('.btnp').forEach(btn => btn.disabled = true);
+
+      // Play audio and wait for it to end
+      audio.play().then(() => {
+        // Success: wait for it to end
+        audio.onended = () => {
+          window.open(targetURL, '_blank');
+          document.querySelectorAll('.btnp').forEach(btn => btn.disabled = false);
+        };
+      }).catch((error) => {
+        // If browser blocks autoplay, open immediately
+        console.warn("Audio autoplay blocked or failed. Opening level directly.");
+        window.open(targetURL, '_blank');
+        document.querySelectorAll('.btnp').forEach(btn => btn.disabled = false);
+      });
+    }
+  </script>
+</body>
+</html>

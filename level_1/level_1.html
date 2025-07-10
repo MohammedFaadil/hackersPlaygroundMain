@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hacker's Playground - Level 01</title>
+
+  <link rel="icon" href="assets/favicon.png" type="image/png" />
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Share Tech Mono', monospace;
+      background: black;
+      overflow: hidden;
+      color: #00ffcc;
+    }
+
+    canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 0;
+    }
+
+    .container {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .level_1 {
+      width: 300px;
+      transition: transform 0.3s ease, filter 0.3s ease;
+      filter: drop-shadow(0 0 5px #0ff);
+    }
+
+    .level_1:hover {
+      transform: scale(1.05);
+      filter: drop-shadow(0 0 20px #00ffcc);
+    }
+
+    h1 {
+      font-size: 1.8rem;
+      text-shadow: 0 0 10px #0ff;
+      margin-bottom: 20px;
+      white-space: nowrap;
+      overflow: hidden;
+      border-right: 3px solid #00ffcc;
+      width: 0ch;
+      /* start from 0 characters */
+      animation: typing 3s steps(28, end) forwards, blink 0.6s step-end infinite alternate;
+    }
+
+    @keyframes typing {
+      from {
+        width: 0ch;
+      }
+
+      to {
+        width: 30ch;
+        /* match the character count */
+      }
+    }
+
+    @keyframes blink {
+      50% {
+        border-color: transparent;
+      }
+    }
+
+    .btn {
+      width: 240px;
+      height: 60px;
+      border: none;
+      position: relative;
+      background: #111;
+      font-size: 1rem;
+      color: #00f0ff;
+      cursor: pointer;
+      clip-path: polygon(92% 0, 100% 25%, 100% 100%, 8% 100%, 0% 75%, 0 0);
+      font-family: 'Share Tech Mono', monospace;
+      transition: all 0.3s ease-in-out;
+      box-shadow: 0 0 10px #00f0ff, inset 0 0 5px #00f0ff;
+    }
+
+    .btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 25px #00f0ff, 0 0 50px #00f0ff, inset 0 0 10px #00f0ff;
+    }
+
+    .btn__content {
+      position: absolute;
+      inset: 2px;
+      background: linear-gradient(45deg, #00f0ff, #00ffa5);
+      color: #000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      clip-path: inherit;
+      z-index: 2;
+      /* 🛠 Ensures it's above glitch */
+      font-weight: bold;
+      text-shadow: 0 0 2px #00ffcc;
+    }
+
+    .btn__glitch {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(45deg, #00f0ff, #ff004c);
+      opacity: 0.5;
+      filter: drop-shadow(-2px 2px #00f0ff) drop-shadow(2px -2px #ff004c);
+      z-index: 1;
+      /* 🛠 Behind content */
+      display: none;
+      clip-path: inherit;
+    }
+
+    .btn:hover .btn__glitch {
+      display: block;
+      animation: glitch-animation 0.6s infinite;
+    }
+
+    @keyframes glitch-animation {
+      0% {
+        transform: translate(0);
+      }
+
+      20% {
+        transform: translate(-2px, 2px);
+      }
+
+      40% {
+        transform: translate(2px, -2px);
+      }
+
+      60% {
+        transform: translate(-1px, 1px);
+      }
+
+      80% {
+        transform: translate(1px, -1px);
+      }
+
+      100% {
+        transform: translate(0);
+      }
+    }
+
+    .btn__label {
+      font-size: 0.65rem;
+      position: absolute;
+      bottom: -10px;
+      right: 12%;
+      padding: 2px 8px;
+      background: #000;
+      color: #00f0ff;
+      border: 1px solid #00f0ff;
+      z-index: 3;
+      text-transform: uppercase;
+      box-shadow: 0 0 5px #00f0ff;
+    }
+
+    @keyframes pulse {
+      0% {
+        box-shadow: 0 0 10px #00f0ff, 0 0 5px #00f0ff inset;
+      }
+
+      50% {
+        box-shadow: 0 0 25px #00f0ff, 0 0 15px #00f0ff inset;
+      }
+
+      100% {
+        box-shadow: 0 0 10px #00f0ff, 0 0 5px #00f0ff inset;
+      }
+    }
+
+    .btn:hover {
+      animation: pulse 1.2s infinite;
+    }
+
+
+
+
+    #audioControl {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      font-size: 0.8rem;
+      color: #00f0ff;
+      cursor: pointer;
+      z-index: 2;
+      text-shadow: 0 0 10px #00f0ff;
+    }
+  </style>
+</head>
+
+<body>
+  <canvas id="matrixCanvas"></canvas>
+
+  <div class="container">
+    <h1>🚨 LEVEL 01: PHISHING ATTACKS</h1>
+
+    <img src="../images/level_1.png" alt="Level 1" class="level_1" />
+
+    <div class="button-container">
+      <button onclick="window.location.href='hint.html';" class="btn">
+        <span class="btn__content">Start The Mission_</span>
+        <span class="btn__glitch"></span>
+        <span class="btn__label">r25</span>
+      </button>
+    </div>
+  </div>
+
+  <div id="audioControl" onclick="toggleAudio()">🎧 Toggle Music</div>
+
+
+
+  <script>
+    // Matrix Rain Background
+    const canvas = document.getElementById("matrixCanvas");
+    const ctx = canvas.getContext("2d");
+    canvas.height = window.innerHeight;
+    canvas.width = window.innerWidth;
+
+    const letters = "010101010101";
+    const fontSize = 14;
+    const columns = canvas.width / fontSize;
+    const drops = Array(Math.floor(columns)).fill(1);
+
+    function draw() {
+      ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+      ctx.fillStyle = "#00ffcc";
+      ctx.font = fontSize + "px monospace";
+
+      for (let i = 0; i < drops.length; i++) {
+        const text = letters[Math.floor(Math.random() * letters.length)];
+        ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+        if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+          drops[i] = 0;
+        }
+        drops[i]++;
+      }
+    }
+
+    setInterval(draw, 33);
+
+    // Background Music Control
+    const music = document.getElementById("bgMusic");
+
+    function toggleAudio() {
+      if (music.paused) {
+        music.play();
+      } else {
+        music.pause();
+      }
+    }
+
+    window.addEventListener("load", () => {
+      setTimeout(() => {
+        music.volume = 0.3;
+        music.play().catch(() => {
+          document.body.addEventListener("click", () => music.play(), { once: true });
+        });
+      }, 1000);
+    });
+
+    // Responsive resizing
+    window.addEventListener("resize", () => {
+      canvas.height = window.innerHeight;
+      canvas.width = window.innerWidth;
+    });
+  </script>
+</body>
+
+</html>
