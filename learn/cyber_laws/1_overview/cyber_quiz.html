@@ -176,7 +176,7 @@
 
 <body>
     <div class="quiz-container" id="quiz-container">
-        <h1>Network Security</h1>
+        <h1>Overview Cyber Laws</h1>
         <div class="timer" id="timer" style="display: none;">
             Time left: <span id="time">10</span> seconds
         </div>
@@ -192,113 +192,117 @@
             <h2>Quiz Finished!</h2>
             <p>Your Score: <span id="scoreText"></span></p>
             <button onclick="location.reload()">Play Again 🔄</button>
+            <button onclick="window.location.href='/learn/cyber_laws.html'" style="margin-left: 10px;">Home</button>
+
+
         </div>
     </div>
 
     <script>
         const quizData = [
             {
-                question: "What is the primary purpose of an Intrusion Detection System (IDS)?",
+                question: "What is the primary legislation for cyber laws in India?",
                 options: [
-                    "To detect and alert on suspicious activities within a network",
-                    "To prevent data from being accessed externally",
-                    "To encrypt sensitive information",
-                    "To create backup copies of data"
+                    "Cyber Crime Prevention Act",
+                    "Information Technology Act, 2000",
+                    "Indian Penal Code, 1860",
+                    "Digital Safety Regulation Act"
                 ],
-                answer: "To detect and alert on suspicious activities within a network"
+                answer: "Information Technology Act, 2000"
             },
             {
-                question: "What is the main function of a proxy server in network security?",
+                question: "What does the IT Act, 2000 primarily aim to address?",
                 options: [
-                    "To prevent unauthorized data access",
-                    "To cache data for faster access",
-                    "To mask the client’s IP address",
-                    "To encrypt all data"
+                    "Promoting hardware development",
+                    "Regulating telecommunication companies",
+                    "Providing legal recognition for electronic transactions and combating cybercrime",
+                    "Taxation on digital goods"
                 ],
-                answer: "To mask the client’s IP address"
+                answer: "Providing legal recognition for electronic transactions and combating cybercrime"
             },
             {
-                question: "What does SSL stand for in network security?",
+                question: "Which of the following is a punishable offense under the IT Act?",
                 options: [
-                    "Secure Socket Layer",
-                    "Secret Security Link",
-                    "Server Socket Login",
-                    "Secure System Layer"
+                    "Posting selfies online",
+                    "Sending promotional emails",
+                    "Hacking and unauthorized access to systems",
+                    "Using VPNs"
                 ],
-                answer: "Secure Socket Layer"
+                answer: "Hacking and unauthorized access to systems"
             },
             {
-                question: "Which type of attack floods a network with traffic to disrupt services?",
+                question: "Who enforces cyber laws in India?",
                 options: [
-                    "Phishing",
-                    "DDoS (Distributed Denial of Service)",
-                    "SQL Injection",
-                    "Man-in-the-Middle"
+                    "Ministry of Education",
+                    "Indian Computer Emergency Response Team (CERT-In)",
+                    "Reserve Bank of India",
+                    "Telecom Regulatory Authority of India"
                 ],
-                answer: "DDoS (Distributed Denial of Service)"
+                answer: "Indian Computer Emergency Response Team (CERT-In)"
             },
             {
-                question: "What is the purpose of a VPN in network security?",
+                question: "Which section of the IT Act deals with hacking?",
                 options: [
-                    "To create a secure, encrypted connection over a less secure network",
-                    "To speed up internet access",
-                    "To provide more bandwidth for the network",
-                    "To protect the physical network infrastructure"
+                    "Section 66",
+                    "Section 21",
+                    "Section 420",
+                    "Section 80"
                 ],
-                answer: "To create a secure, encrypted connection over a less secure network"
+                answer: "Section 66"
             },
             {
-                question: "What is a common method used to prevent unauthorized network access?",
+                question: "Which of these is a cybercrime under Indian law?",
                 options: [
-                    "Password reuse",
-                    "Multi-factor authentication",
-                    "Firewall bypassing",
-                    "Using public Wi-Fi"
+                    "Criticizing the government",
+                    "Accessing free public Wi-Fi",
+                    "Identity theft",
+                    "Watching online videos"
                 ],
-                answer: "Multi-factor authentication"
+                answer: "Identity theft"
             },
             {
-                question: "Which protocol is often used to secure data transmission over the internet?",
+                question: "What role does the Cyber Appellate Tribunal (CRAT) play?",
                 options: [
-                    "HTTP",
-                    "FTP",
-                    "HTTPS",
-                    "SMTP"
+                    "Registers online businesses",
+                    "Handles cybercrime FIRs",
+                    "Adjudicates cyber law-related disputes and appeals",
+                    "Issues digital certificates"
                 ],
-                answer: "HTTPS"
+                answer: "Adjudicates cyber law-related disputes and appeals"
             },
             {
-                question: "What is a firewall's role in network security?",
+                question: "What is the penalty for publishing obscene material online under Section 67?",
                 options: [
-                    "It encrypts all data in the network",
-                    "It creates a barrier between trusted and untrusted networks",
-                    "It monitors and blocks malware",
-                    "It handles all IP address assignments"
+                    "No penalty",
+                    "Warning only",
+                    "Fine and imprisonment",
+                    "Internet disconnection"
                 ],
-                answer: "It creates a barrier between trusted and untrusted networks"
+                answer: "Fine and imprisonment"
             },
             {
-                question: "What is the purpose of Network Access Control (NAC)?",
+                question: "Why is cyber law important in the modern world?",
                 options: [
-                    "To restrict access to the network based on device compliance",
-                    "To manage IP addresses within a network",
-                    "To prevent malware from spreading",
-                    "To control network speed"
+                    "It reduces mobile data costs",
+                    "It allows faster downloads",
+                    "It protects digital rights, ensures security, and builds trust in digital transactions",
+                    "It encourages offline communication"
                 ],
-                answer: "To restrict access to the network based on device compliance"
+                answer: "It protects digital rights, ensures security, and builds trust in digital transactions"
             },
             {
-                question: "What is packet sniffing?",
+                question: "Which of the following is a key function of CERT-In?",
                 options: [
-                    "Intercepting and analyzing network packets",
-                    "Flooding the network with malicious packets",
-                    "Encrypting network traffic",
-                    "Hiding IP addresses"
+                    "Managing telecom billing",
+                    "Monitoring cyber threats and responding to incidents",
+                    "Issuing Aadhaar cards",
+                    "Providing cloud storage"
                 ],
-                answer: "Intercepting and analyzing network packets"
-            },
-
+                answer: "Monitoring cyber threats and responding to incidents"
+            }
         ];
+
+
 
         let currentQuestion = 0;
         let score = 0;
@@ -428,8 +432,76 @@
             finalScore.style.display = 'block';
             scoreText.textContent = `${score} / ${quizData.length}`;
             progressBar.style.width = `100%`;
+
+            if (typeof saveQuizScore === 'function') {
+                saveQuizScore(score);
+            }
+
+            if (typeof markTopicComplete === 'function') {
+                markTopicComplete("overview");
+            }
         }
+
+
+
     </script>
+    <script type="module">
+        // Firebase SDK imports
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-app.js";
+        import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-auth.js";
+        import { getFirestore, doc, setDoc } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-firestore.js";
+
+        // Firebase config
+        const firebaseConfig = {
+            apiKey: "AIzaSyBt7je8Ga9fKVJ7Pu2Ok8HvbFaLV5Qe1ts",
+            authDomain: "hackersplayground-ca1a1.firebaseapp.com",
+            projectId: "hackersplayground-ca1a1",
+            storageBucket: "hackersplayground-ca1a1.appspot.com",
+            messagingSenderId: "597874916220",
+            appId: "1:597874916220:web:85ad84575aac58ce4c82f9",
+            measurementId: "G-PSC705VYNS"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+        const db = getFirestore(app);
+
+        // Save score to Firestore
+        async function saveScoreToFirestore(score) {
+            const user = auth.currentUser;
+            if (!user) {
+                console.warn("User not authenticated. Cannot save score.");
+                return;
+            }
+
+            const docRef = doc(db, "leaderboard", user.uid);
+            const payload = {
+                email: user.email,
+                name: user.displayName || user.email.split("@")[0],
+                scores: {
+                    quiz1: score
+                }
+            };
+
+            try {
+                await setDoc(docRef, payload, { merge: true });
+                console.log("Score updated successfully");
+            } catch (error) {
+                console.error("Error saving score: ", error);
+            }
+        }
+
+        // Hook to expose saving to quiz logic
+        onAuthStateChanged(auth, (user) => {
+            if (user) {
+                window.saveQuizScore = (score) => saveScoreToFirestore(score);
+            } else {
+                window.saveQuizScore = () => console.warn("User not signed in, score not saved.");
+            }
+        });
+    </script>
+
 </body>
 
 </html>

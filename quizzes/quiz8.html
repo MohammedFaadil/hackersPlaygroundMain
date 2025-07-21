@@ -176,7 +176,7 @@
 
 <body>
     <div class="quiz-container" id="quiz-container">
-        <h1>Network Security</h1>
+        <h1>Vulnerability Assessment</h1>
         <div class="timer" id="timer" style="display: none;">
             Time left: <span id="time">10</span> seconds
         </div>
@@ -198,107 +198,109 @@
     <script>
         const quizData = [
             {
-                question: "What is the primary purpose of an Intrusion Detection System (IDS)?",
+                question: "What is a vulnerability assessment?",
                 options: [
-                    "To detect and alert on suspicious activities within a network",
-                    "To prevent data from being accessed externally",
-                    "To encrypt sensitive information",
-                    "To create backup copies of data"
+                    "A way to back up system data",
+                    "A process of identifying and evaluating security weaknesses in a system",
+                    "An antivirus installation",
+                    "Creating a new network"
                 ],
-                answer: "To detect and alert on suspicious activities within a network"
+                answer: "A process of identifying and evaluating security weaknesses in a system"
             },
             {
-                question: "What is the main function of a proxy server in network security?",
+                question: "Which of the following tools is commonly used for vulnerability scanning?",
                 options: [
-                    "To prevent unauthorized data access",
-                    "To cache data for faster access",
-                    "To mask the client’s IP address",
-                    "To encrypt all data"
+                    "Adobe Reader",
+                    "Microsoft Word",
+                    "Nessus",
+                    "Chrome DevTools"
                 ],
-                answer: "To mask the client’s IP address"
+                answer: "Nessus"
             },
             {
-                question: "What does SSL stand for in network security?",
+                question: "Which type of vulnerability scanner checks for known software flaws?",
                 options: [
-                    "Secure Socket Layer",
-                    "Secret Security Link",
-                    "Server Socket Login",
-                    "Secure System Layer"
+                    "Network mapper",
+                    "Port scanner",
+                    "Signature-based scanner",
+                    "Anomaly detector"
                 ],
-                answer: "Secure Socket Layer"
+                answer: "Signature-based scanner"
             },
             {
-                question: "Which type of attack floods a network with traffic to disrupt services?",
+                question: "Why is it important to conduct regular vulnerability assessments?",
                 options: [
-                    "Phishing",
-                    "DDoS (Distributed Denial of Service)",
-                    "SQL Injection",
-                    "Man-in-the-Middle"
+                    "To install new software",
+                    "To make the network faster",
+                    "To detect weaknesses before attackers exploit them",
+                    "To create new users"
                 ],
-                answer: "DDoS (Distributed Denial of Service)"
+                answer: "To detect weaknesses before attackers exploit them"
             },
             {
-                question: "What is the purpose of a VPN in network security?",
+                question: "What is a false positive in vulnerability scanning?",
                 options: [
-                    "To create a secure, encrypted connection over a less secure network",
-                    "To speed up internet access",
-                    "To provide more bandwidth for the network",
-                    "To protect the physical network infrastructure"
+                    "A vulnerability that was fixed but reappeared",
+                    "A real vulnerability detected multiple times",
+                    "A reported vulnerability that doesn't actually exist",
+                    "An attack attempt by a real hacker"
                 ],
-                answer: "To create a secure, encrypted connection over a less secure network"
+                answer: "A reported vulnerability that doesn't actually exist"
             },
             {
-                question: "What is a common method used to prevent unauthorized network access?",
+                question: "Which of the following is NOT a phase in the vulnerability assessment process?",
                 options: [
-                    "Password reuse",
-                    "Multi-factor authentication",
-                    "Firewall bypassing",
-                    "Using public Wi-Fi"
+                    "Scanning",
+                    "Remediation",
+                    "Reporting",
+                    "Compiling source code"
                 ],
-                answer: "Multi-factor authentication"
+                answer: "Compiling source code"
             },
             {
-                question: "Which protocol is often used to secure data transmission over the internet?",
+                question: "Which kind of vulnerability can result from outdated software?",
                 options: [
-                    "HTTP",
-                    "FTP",
-                    "HTTPS",
-                    "SMTP"
+                    "Man-in-the-middle vulnerability",
+                    "Zero-day vulnerability",
+                    "Unpatched vulnerability",
+                    "Rootkit"
                 ],
-                answer: "HTTPS"
+                answer: "Unpatched vulnerability"
             },
             {
-                question: "What is a firewall's role in network security?",
+                question: "How is vulnerability assessment different from penetration testing?",
                 options: [
-                    "It encrypts all data in the network",
-                    "It creates a barrier between trusted and untrusted networks",
-                    "It monitors and blocks malware",
-                    "It handles all IP address assignments"
+                    "Assessment finds and fixes; testing exploits",
+                    "Both are the same",
+                    "Testing is only for developers",
+                    "Assessment is illegal"
                 ],
-                answer: "It creates a barrier between trusted and untrusted networks"
+                answer: "Assessment finds and fixes; testing exploits"
             },
             {
-                question: "What is the purpose of Network Access Control (NAC)?",
+                question: "Which report component is most useful to a cybersecurity team?",
                 options: [
-                    "To restrict access to the network based on device compliance",
-                    "To manage IP addresses within a network",
-                    "To prevent malware from spreading",
-                    "To control network speed"
+                    "Color scheme of the report",
+                    "Number of software licenses",
+                    "List of critical vulnerabilities with risk scores",
+                    "Company budget"
                 ],
-                answer: "To restrict access to the network based on device compliance"
+                answer: "List of critical vulnerabilities with risk scores"
             },
             {
-                question: "What is packet sniffing?",
+                question: "Which standard is widely followed for vulnerability scoring?",
                 options: [
-                    "Intercepting and analyzing network packets",
-                    "Flooding the network with malicious packets",
-                    "Encrypting network traffic",
-                    "Hiding IP addresses"
+                    "IPV6",
+                    "HTTP/2",
+                    "CVSS (Common Vulnerability Scoring System)",
+                    "WPA3"
                 ],
-                answer: "Intercepting and analyzing network packets"
-            },
-
+                answer: "CVSS (Common Vulnerability Scoring System)"
+            }
         ];
+
+
+
 
         let currentQuestion = 0;
         let score = 0;

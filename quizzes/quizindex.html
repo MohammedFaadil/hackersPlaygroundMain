@@ -6,195 +6,150 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cybersecurity Quizzes</title>
     <style>
-        /* Basic reset */
+        @import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
-       
-
-        /* Other styles remain unchanged */
-
-        /* Description text */
-        .quiz-card p {
-            font-size: 1.8em;
-            /* Adjust this value as needed */
-            color: #000000;
-            margin-bottom: 15px;
-            font-size: large;
-            font-weight: bold;
-            font-family: cursive;
-            font-size: 50px;
-
-        }
-
-
-        /* Body styling */
         body {
-            background-color: #f4f4f9;
+            font-family: 'VT323', monospace;
+            background-color: #000;
+            color: #00ff99;
             display: flex;
-            justify-content: center;
+            flex-direction: column;
             align-items: center;
             min-height: 100vh;
-            flex-direction: column;
             overflow: auto;
-
-            /* Allow scrolling */
+            padding-top: 20px;
         }
 
-        /* Title styling */
+        h1 {
+            font-size: 3.5em;
+            color: #00ffcc;
+            margin: 20px;
+            text-shadow: 0 0 12px #00ffcc;
+            white-space: nowrap;
+            overflow: hidden;
+            border-right: 3px solid #00ffcc;
+            animation: typing 1.5s steps(40, end) forwards, blink 0.8s step-end infinite;
+        }
 
-
-        @keyframes fadeIn {
+        /* Increase steps for longer text */
+        @keyframes typing {
             from {
-                opacity: 0;
+                width: 0;
             }
 
             to {
-                opacity: 1;
+                width: 23ch;
+                /* Approximate length of your heading in characters */
             }
         }
 
-        /* Container for quizzes */
+        @keyframes blink {
+            50% {
+                border-color: transparent;
+            }
+        }
+
         .quiz-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            padding: 20px;
-            width: 90%;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 35px;
+            padding: 30px;
+            width: 95%;
             max-width: 1400px;
-            animation: slideIn 1s ease;
-            /* Slide in animation for container */
         }
 
-        @keyframes slideIn {
-            from {
-                transform: translateY(30px);
-                opacity: 0;
-            }
-
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
-        }
-
-        /* Quiz card styling */
         .quiz-card {
-            background-color: #e3f9fb;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+            background: linear-gradient(145deg, #0f0f0f, #1c1c1c);
+            border: 2px solid #00ffcc55;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 0 20px #00ffcc33;
             text-align: center;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            cursor: pointer;
-            overflow: hidden;
-            /* Prevent content overflow */
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
             position: relative;
-            /* Relative position for pseudo-elements */
             z-index: 1;
-            /* To place pseudo-elements behind */
-            will-change: transform;
-
-            /* Improve performance on hover */
         }
 
-        
-
-        /* Hover effect for quiz cards */
         .quiz-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.2);
+            transform: scale(1.05);
+            box-shadow: 0 0 25px #00ffccaa;
+            animation: pulseGlow 1s infinite alternate;
         }
 
-        /* Quiz card title styling */
+        @keyframes pulseGlow {
+            0% {
+                box-shadow: 0 0 10px #00ffaa44;
+            }
+
+            100% {
+                box-shadow: 0 0 25px #00ffaaaa;
+            }
+        }
+
         .quiz-card h2 {
-            font-size: 1.6em;
-            color: #0072ff;
+            font-size: 1.8em;
+            color: #00ffaa;
             margin-bottom: 10px;
             transition: color 0.3s ease;
         }
 
-        /* Change color on hover */
         .quiz-card:hover h2 {
-            color: #005bb5;
+            animation: glitch 0.8s linear infinite;
+            color: #ccff00;
         }
 
-        /* Description text */
-        .quiz-card p {
-            font-size: 1em;
-            color: #555;
-            margin-bottom: 15px;
-        }
+        @keyframes glitch {
+            0% {
+                text-shadow: 2px 0 red;
+            }
 
-        /* Button for starting quiz */
-        .start-btn {
-            display: inline-block;
-            margin-top: 10px;
-            padding: 10px 20px;
-            font-size: 1em;
-            color: #fff;
-            background-color: #0072ff;
-            border: none;
-            border-radius: 5px;
-            text-decoration: none;
-            transition: background-color 0.3s ease, transform 0.3s ease;
-            font-family: cursive;
-        }
-
-        .start-btn:hover {
-            background-color: #005bb5;
-            transform: scale(1.05);
-            /* Slightly increase button size on hover */
-        }
-
-        /* Add a background animation for the cards */
-        .quiz-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(120deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.1));
-            opacity: 0;
-            transition: opacity 0.5s ease;
-            z-index: -1;
-            /* Behind the card content */
-        }
-
-        /* Show background effect on hover */
-        .quiz-card:hover::before {
-            opacity: 1;
-        }
-
-        h1 {
-            font-size: 3em;
-            color: #fff;
-            margin-bottom: 20px;
-            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.8);
-            font-family: cursive;
-
-            font-weight: bold;
-            animation: beat 3s ease-in-out infinite;
-        }
-
-        h2{
-            font-family: cursive;
-        }
-
-        @keyframes beat {
-
-            0%,
-            100% {
-                transform: scale(1);
+            25% {
+                text-shadow: -2px 0 lime;
             }
 
             50% {
-                transform: scale(1.1);
+                text-shadow: 2px 0 cyan;
             }
+
+            75% {
+                text-shadow: -2px 0 #ff00ff;
+            }
+
+            100% {
+                text-shadow: 2px 0 yellow;
+            }
+        }
+
+        .quiz-card p {
+            font-size: 1.2em;
+            color: #bbb;
+            margin-bottom: 20px;
+            line-height: 1.4;
+        }
+
+        .start-btn {
+            background-color: #00ffaa;
+            color: #000;
+            font-family: 'VT323', monospace;
+            font-size: 1.4em;
+            padding: 12px 28px;
+            border: none;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 0 12px #00ffaa66;
+        }
+
+        .start-btn:hover {
+            background-color: #ccff00;
+            transform: scale(1.08);
+            box-shadow: 0 0 20px #ccff00aa;
         }
 
         #bg-video {
@@ -205,6 +160,8 @@
             height: 100%;
             object-fit: cover;
             z-index: -1;
+            opacity: 0.1;
+            filter: brightness(0.4) grayscale(1);
         }
     </style>
 </head>
@@ -215,7 +172,7 @@
         Your browser does not support the video tag.
     </video>
     <br><br>
-    <h1>Cybersecurity Quizzes</h1>
+    <h1>Cybersecurity Quizzes!</h1>
     <br><br>
 
     <!-- Container for quiz cards -->
@@ -249,49 +206,49 @@
             <h2>Quiz 5</h2>
             <h2>Web Application Security</h2>
             <p>Test your skills on protecting web applications from threats.</p>
-            <a href="#" class="start-btn">Start Quiz</a>
+            <a href="/quizzes/quiz5.html" class="start-btn">Start Quiz</a>
         </div>
         <div class="quiz-card">
             <h2>Quiz 6</h2>
             <h2>Social Engineering</h2>
             <p>Understand tactics hackers use to manipulate people.</p>
-            <a href="#" class="start-btn">Start Quiz</a>
+            <a href="/quizzes/quiz6.html" class="start-btn">Start Quiz</a>
         </div>
         <div class="quiz-card">
             <h2>Quiz 7</h2>
             <h2>Malware and Ransomware</h2>
             <p>Identify various types of malware and ransomware threats.</p>
-            <a href="#" class="start-btn">Start Quiz</a>
+            <a href="/quizzes/quiz7.html" class="start-btn">Start Quiz</a>
         </div>
         <div class="quiz-card">
             <h2>Quiz 8</h2>
             <h2>Vulnerability Assessment</h2>
             <p>Learn about identifying and mitigating vulnerabilities.</p>
-            <a href="#" class="start-btn">Start Quiz</a>
+            <a href="/quizzes/quiz8.html" class="start-btn">Start Quiz</a>
         </div>
         <div class="quiz-card">
             <h2>Quiz 9</h2>
             <h2>Cloud Security</h2>
             <p>Explore security measures for cloud-based environments.</p>
-            <a href="#" class="start-btn">Start Quiz</a>
+            <a href="/quizzes/quiz9.html" class="start-btn">Start Quiz</a>
         </div>
         <div class="quiz-card">
             <h2>Quiz 10</h2>
             <h2>Penetration Testing</h2>
             <p>Challenge yourself with concepts of penetration testing.</p>
-            <a href="#" class="start-btn">Start Quiz</a>
+            <a href="/quizzes/quiz10.html" class="start-btn">Start Quiz</a>
         </div>
         <div class="quiz-card">
             <h2>Quiz 11</h2>
             <h2>Incident Response</h2>
             <p>Review strategies for managing cybersecurity incidents.</p>
-            <a href="#" class="start-btn">Start Quiz</a>
+            <a href="/quizzes/quiz11.html" class="start-btn">Start Quiz</a>
         </div>
         <div class="quiz-card">
             <h2>Quiz 12</h2>
             <h2>Mobile Security</h2>
             <p>Learn about securing mobile devices and apps.</p>
-            <a href="#" class="start-btn">Start Quiz</a>
+            <a href="/quizzes/quiz12.html" class="start-btn">Start Quiz</a>
         </div>
     </div>
 

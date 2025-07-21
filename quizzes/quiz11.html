@@ -176,7 +176,7 @@
 
 <body>
     <div class="quiz-container" id="quiz-container">
-        <h1>Network Security</h1>
+        <h1>Incident Response</h1>
         <div class="timer" id="timer" style="display: none;">
             Time left: <span id="time">10</span> seconds
         </div>
@@ -198,107 +198,109 @@
     <script>
         const quizData = [
             {
-                question: "What is the primary purpose of an Intrusion Detection System (IDS)?",
+                question: "What is the main purpose of incident response in cybersecurity?",
                 options: [
-                    "To detect and alert on suspicious activities within a network",
-                    "To prevent data from being accessed externally",
-                    "To encrypt sensitive information",
-                    "To create backup copies of data"
+                    "To develop mobile applications",
+                    "To respond to customer reviews",
+                    "To detect, contain, and recover from security incidents",
+                    "To install antivirus software"
                 ],
-                answer: "To detect and alert on suspicious activities within a network"
+                answer: "To detect, contain, and recover from security incidents"
             },
             {
-                question: "What is the main function of a proxy server in network security?",
+                question: "Which of the following is the first phase of the incident response lifecycle?",
                 options: [
-                    "To prevent unauthorized data access",
-                    "To cache data for faster access",
-                    "To mask the client’s IP address",
-                    "To encrypt all data"
+                    "Containment",
+                    "Detection",
+                    "Preparation",
+                    "Eradication"
                 ],
-                answer: "To mask the client’s IP address"
+                answer: "Preparation"
             },
             {
-                question: "What does SSL stand for in network security?",
+                question: "What does the 'containment' phase focus on?",
                 options: [
-                    "Secure Socket Layer",
-                    "Secret Security Link",
-                    "Server Socket Login",
-                    "Secure System Layer"
+                    "Preventing incidents from occurring",
+                    "Installing system updates",
+                    "Limiting the damage and preventing further spread",
+                    "Writing code to exploit the system"
                 ],
-                answer: "Secure Socket Layer"
+                answer: "Limiting the damage and preventing further spread"
             },
             {
-                question: "Which type of attack floods a network with traffic to disrupt services?",
+                question: "During which phase are logs and evidence collected for analysis?",
                 options: [
-                    "Phishing",
-                    "DDoS (Distributed Denial of Service)",
-                    "SQL Injection",
-                    "Man-in-the-Middle"
+                    "Preparation",
+                    "Detection",
+                    "Containment",
+                    "Investigation"
                 ],
-                answer: "DDoS (Distributed Denial of Service)"
+                answer: "Investigation"
             },
             {
-                question: "What is the purpose of a VPN in network security?",
+                question: "What is the goal of the 'eradication' phase?",
                 options: [
-                    "To create a secure, encrypted connection over a less secure network",
-                    "To speed up internet access",
-                    "To provide more bandwidth for the network",
-                    "To protect the physical network infrastructure"
+                    "Restoring public trust",
+                    "Completely removing the threat from the environment",
+                    "Informing the media",
+                    "Encrypting data"
                 ],
-                answer: "To create a secure, encrypted connection over a less secure network"
+                answer: "Completely removing the threat from the environment"
             },
             {
-                question: "What is a common method used to prevent unauthorized network access?",
+                question: "Which team is typically responsible for handling security incidents?",
                 options: [
-                    "Password reuse",
-                    "Multi-factor authentication",
-                    "Firewall bypassing",
-                    "Using public Wi-Fi"
+                    "Software testing team",
+                    "IT helpdesk",
+                    "Incident Response Team (IRT) or CSIRT",
+                    "Finance department"
                 ],
-                answer: "Multi-factor authentication"
+                answer: "Incident Response Team (IRT) or CSIRT"
             },
             {
-                question: "Which protocol is often used to secure data transmission over the internet?",
+                question: "Why is it important to have an incident response plan (IRP)?",
                 options: [
-                    "HTTP",
-                    "FTP",
-                    "HTTPS",
-                    "SMTP"
+                    "To reduce internet usage",
+                    "To avoid hiring cybersecurity staff",
+                    "To respond efficiently and minimize damage during incidents",
+                    "To help users log in faster"
                 ],
-                answer: "HTTPS"
+                answer: "To respond efficiently and minimize damage during incidents"
             },
             {
-                question: "What is a firewall's role in network security?",
+                question: "What is a post-incident review?",
                 options: [
-                    "It encrypts all data in the network",
-                    "It creates a barrier between trusted and untrusted networks",
-                    "It monitors and blocks malware",
-                    "It handles all IP address assignments"
+                    "A security awareness game",
+                    "A test of firewalls",
+                    "A discussion to learn from the incident and improve future response",
+                    "An audit of financial records"
                 ],
-                answer: "It creates a barrier between trusted and untrusted networks"
+                answer: "A discussion to learn from the incident and improve future response"
             },
             {
-                question: "What is the purpose of Network Access Control (NAC)?",
+                question: "Which of the following is a key indicator of a possible security incident?",
                 options: [
-                    "To restrict access to the network based on device compliance",
-                    "To manage IP addresses within a network",
-                    "To prevent malware from spreading",
-                    "To control network speed"
+                    "Normal traffic logs",
+                    "Unexpected system behavior or unauthorized access",
+                    "Users updating their passwords",
+                    "Scheduled maintenance activities"
                 ],
-                answer: "To restrict access to the network based on device compliance"
+                answer: "Unexpected system behavior or unauthorized access"
             },
             {
-                question: "What is packet sniffing?",
+                question: "What should be done after resolving an incident?",
                 options: [
-                    "Intercepting and analyzing network packets",
-                    "Flooding the network with malicious packets",
-                    "Encrypting network traffic",
-                    "Hiding IP addresses"
+                    "Erase all logs to free space",
+                    "Immediately start a penetration test",
+                    "Conduct a post-incident review and update the IRP",
+                    "Shut down all systems"
                 ],
-                answer: "Intercepting and analyzing network packets"
-            },
-
+                answer: "Conduct a post-incident review and update the IRP"
+            }
         ];
+
+
+
 
         let currentQuestion = 0;
         let score = 0;

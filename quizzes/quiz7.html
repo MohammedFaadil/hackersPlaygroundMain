@@ -176,7 +176,7 @@
 
 <body>
     <div class="quiz-container" id="quiz-container">
-        <h1>Network Security</h1>
+        <h1>Malware and Ransomware</h1>
         <div class="timer" id="timer" style="display: none;">
             Time left: <span id="time">10</span> seconds
         </div>
@@ -198,107 +198,109 @@
     <script>
         const quizData = [
             {
-                question: "What is the primary purpose of an Intrusion Detection System (IDS)?",
+                question: "What is malware?",
                 options: [
-                    "To detect and alert on suspicious activities within a network",
-                    "To prevent data from being accessed externally",
-                    "To encrypt sensitive information",
-                    "To create backup copies of data"
+                    "A hardware device",
+                    "A legal software update",
+                    "A type of malicious software designed to harm or exploit systems",
+                    "A tool for network optimization"
                 ],
-                answer: "To detect and alert on suspicious activities within a network"
+                answer: "A type of malicious software designed to harm or exploit systems"
             },
             {
-                question: "What is the main function of a proxy server in network security?",
+                question: "What is ransomware?",
                 options: [
-                    "To prevent unauthorized data access",
-                    "To cache data for faster access",
-                    "To mask the client’s IP address",
-                    "To encrypt all data"
+                    "A virus that self-destructs after one use",
+                    "A type of malware that encrypts files and demands payment to unlock them",
+                    "A software used for remote desktop sharing",
+                    "A browser extension"
                 ],
-                answer: "To mask the client’s IP address"
+                answer: "A type of malware that encrypts files and demands payment to unlock them"
             },
             {
-                question: "What does SSL stand for in network security?",
+                question: "Which of the following is a common sign of a ransomware attack?",
                 options: [
-                    "Secure Socket Layer",
-                    "Secret Security Link",
-                    "Server Socket Login",
-                    "Secure System Layer"
+                    "Faster internet speed",
+                    "Popup ads for free software",
+                    "A message demanding payment to access your files",
+                    "A sudden system shutdown and reboot"
                 ],
-                answer: "Secure Socket Layer"
+                answer: "A message demanding payment to access your files"
             },
             {
-                question: "Which type of attack floods a network with traffic to disrupt services?",
+                question: "How does malware typically spread?",
                 options: [
-                    "Phishing",
-                    "DDoS (Distributed Denial of Service)",
-                    "SQL Injection",
-                    "Man-in-the-Middle"
+                    "Only through USB drives",
+                    "Through airwaves",
+                    "Through infected emails, websites, and downloads",
+                    "Only by internal system failures"
                 ],
-                answer: "DDoS (Distributed Denial of Service)"
+                answer: "Through infected emails, websites, and downloads"
             },
             {
-                question: "What is the purpose of a VPN in network security?",
+                question: "What is a Trojan horse in cybersecurity?",
                 options: [
-                    "To create a secure, encrypted connection over a less secure network",
-                    "To speed up internet access",
-                    "To provide more bandwidth for the network",
-                    "To protect the physical network infrastructure"
+                    "A trusted program that secretly contains malware",
+                    "A brute-force password cracker",
+                    "A type of hardware firewall",
+                    "An antivirus scanner"
                 ],
-                answer: "To create a secure, encrypted connection over a less secure network"
+                answer: "A trusted program that secretly contains malware"
             },
             {
-                question: "What is a common method used to prevent unauthorized network access?",
+                question: "Which of the following is NOT a type of malware?",
                 options: [
-                    "Password reuse",
-                    "Multi-factor authentication",
-                    "Firewall bypassing",
-                    "Using public Wi-Fi"
+                    "Spyware",
+                    "Worm",
+                    "Firewall",
+                    "Adware"
                 ],
-                answer: "Multi-factor authentication"
+                answer: "Firewall"
             },
             {
-                question: "Which protocol is often used to secure data transmission over the internet?",
+                question: "What does a keylogger do?",
                 options: [
-                    "HTTP",
-                    "FTP",
-                    "HTTPS",
-                    "SMTP"
+                    "Encrypt files for protection",
+                    "Logs users out automatically",
+                    "Records keystrokes to capture sensitive information",
+                    "Prevents unauthorized software installations"
                 ],
-                answer: "HTTPS"
+                answer: "Records keystrokes to capture sensitive information"
             },
             {
-                question: "What is a firewall's role in network security?",
+                question: "What should you do if your device is infected with ransomware?",
                 options: [
-                    "It encrypts all data in the network",
-                    "It creates a barrier between trusted and untrusted networks",
-                    "It monitors and blocks malware",
-                    "It handles all IP address assignments"
+                    "Pay the ransom immediately",
+                    "Disconnect from the internet and report the incident",
+                    "Ignore the message and reboot",
+                    "Try opening files with a different app"
                 ],
-                answer: "It creates a barrier between trusted and untrusted networks"
+                answer: "Disconnect from the internet and report the incident"
             },
             {
-                question: "What is the purpose of Network Access Control (NAC)?",
+                question: "Which of the following is a good preventive measure against malware?",
                 options: [
-                    "To restrict access to the network based on device compliance",
-                    "To manage IP addresses within a network",
-                    "To prevent malware from spreading",
-                    "To control network speed"
+                    "Clicking unknown links quickly to remove them",
+                    "Using outdated software",
+                    "Downloading from trusted sources only and using antivirus software",
+                    "Turning off the firewall"
                 ],
-                answer: "To restrict access to the network based on device compliance"
+                answer: "Downloading from trusted sources only and using antivirus software"
             },
             {
-                question: "What is packet sniffing?",
+                question: "Why is it risky to pay the ransom in a ransomware attack?",
                 options: [
-                    "Intercepting and analyzing network packets",
-                    "Flooding the network with malicious packets",
-                    "Encrypting network traffic",
-                    "Hiding IP addresses"
+                    "It may delete your files permanently",
+                    "It encourages attackers and doesn't guarantee file recovery",
+                    "It slows down your internet connection",
+                    "It breaks your firewall rules"
                 ],
-                answer: "Intercepting and analyzing network packets"
-            },
-
+                answer: "It encourages attackers and doesn't guarantee file recovery"
+            }
         ];
+
+
+
 
         let currentQuestion = 0;
         let score = 0;

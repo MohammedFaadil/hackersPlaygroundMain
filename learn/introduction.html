@@ -28,7 +28,10 @@
             max-width: 1200px;
             margin: 0 auto;
             padding: 40px 20px;
+            width: 100%;
+            box-sizing: border-box;
         }
+
 
         h1 {
             font-size: 3.4rem;
@@ -218,39 +221,56 @@
 
         @media (max-width: 768px) {
             h1 {
-                font-size: 2.4rem;
+                font-size: 2rem;
             }
 
             h2 {
-                font-size: 2rem;
-            }
-
-            h3 {
                 font-size: 1.6rem;
             }
 
-            p {
+            h3 {
                 font-size: 1.3rem;
             }
 
+            p,
+            li,
+            .sidebar ul li a {
+                font-size: 1.2rem;
+            }
+
             .btn {
-                font-size: 1.4rem;
+                font-size: 1.2rem;
+                padding: 10px 20px;
             }
 
             #welcomeintro h2 {
-                font-size: 2rem;
+                font-size: 1.6rem;
+            }
+
+            img {
+                max-width: 100%;
             }
         }
 
         @media (max-width: 480px) {
             .container {
-                padding: 20px 10px;
+                padding: 20px 15px;
             }
 
             h1,
             h2,
             h3,
-            p {
+            p,
+            li {
+                text-align: left;
+            }
+
+            #welcomeintro h2 {
+                text-align: center;
+            }
+
+            .btn {
+                width: 100%;
                 text-align: center;
             }
         }
@@ -258,7 +278,7 @@
 
 </head>
 
-<body style="font-size: larger; width: 1500px; margin: 70px; background-color: #eef7ff;">
+<body>
 
     <div class="container">
         <div id="welcomeintro" style="text-align: center; text-decoration: solid;">
@@ -756,9 +776,6 @@
             practices.</p>
         <br>
 
-
-
-
         <h2>💼 Career Opportunities</h2>
         <p>With a growing demand for cybersecurity expertise, this tutorial prepares you for roles across the industry,
             from <strong>Security Analysts</strong> to <strong>Forensics Experts</strong>. By learning how to defend
@@ -777,7 +794,7 @@
         </ul>
         <br>
 
-        <a href="/mcq/mcq.html" class="btn">Start Quiz</a>
+        <a href="/quizzes/quizindex.html" class="btn">Test Yourself!</a>
     </div>
 
 </body>

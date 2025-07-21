@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Indian Cyber Laws</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Share Tech Mono', monospace;
+      background-color: #000;
+      color: #00ffcc;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    header {
+      background-color: #111;
+      padding: 50px 20px;
+      text-align: center;
+      border-bottom: 2px solid #00ffcc;
+      animation: glow 2s infinite ease-in-out;
+      z-index: 2;
+      position: relative;
+    }
+
+    header h1 {
+      font-size: 3.5rem;
+      text-shadow: 0 0 20px #00ffcc;
+      letter-spacing: 2px;
+    }
+
+    header p {
+      color: #ccc;
+      font-size: 1.4rem;
+      margin-top: 10px;
+    }
+
+    @keyframes glow {
+      0%, 100% { box-shadow: 0 0 10px #00ffcc; }
+      50% { box-shadow: 0 0 25px #00ffcc; }
+    }
+
+    .topic-list {
+      padding: 60px 20px;
+      text-align: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    .topic-list h2 {
+      margin-bottom: 50px;
+      color: #00ffff;
+      font-size: 2.2rem;
+      text-shadow: 0 0 12px #00ffff;
+      border-bottom: 2px dashed #00ffff;
+      padding-bottom: 15px;
+      display: inline-block;
+    }
+
+    .topic-list ul {
+      list-style: none;
+      padding: 0;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    .topic-list li {
+      margin: 25px 0;
+      
+    }
+
+    .topic-list a {
+      display: block;
+      background: rgba(18, 18, 18, 0.9);
+      border: 2px solid #00ffcc66;
+      padding: 25px;
+      font-size: 1.5rem;
+      border-radius: 15px;
+      text-decoration: none;
+      color: #00ffcc;
+      box-shadow: 0 0 15px #00ffcc33;
+      transition: all 0.4s ease;
+      animation: fadeInUp 1s ease forwards;
+      opacity: 0;
+      position: relative;
+    }
+
+    .topic-list a:hover {
+      background: radial-gradient(circle at top left, #00ffcc33, #000);
+      transform: scale(1.05);
+      color: #ffffff;
+      box-shadow:
+        0 0 10px #00ffcc,
+        0 0 20px #00ffcc,
+        0 0 40px #00ffcc88,
+        inset 0 0 10px #00ffcc33;
+      
+      border-color: #00ffff;
+    }
+
+    .topic-list li:nth-child(odd) a { animation-delay: 0.1s; }
+    .topic-list li:nth-child(even) a { animation-delay: 0.2s; }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Matrix-style background animation */
+    .matrix-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      background: black;
+      overflow: hidden;
+      z-index: 0;
+    }
+
+    canvas {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Matrix Background -->
+  <div class="matrix-bg">
+    <canvas id="matrixCanvas"></canvas>
+  </div>
+
+  <header>
+    <h1>INDIAN CYBER LAWS</h1>
+    <p>Explore the legal framework protecting the digital frontier in India.</p>
+  </header>
+
+  <section class="topic-list">
+    <h2>TOPICS TO BE COVERED!</h2>
+    <ul>
+      <li><a href="/learn/cyber_laws/1_overview/1_overview.html">1. Overview of Cyber Laws in India</a></li>
+      <li><a href="2_it_act_2000.html">2. Information Technology Act, 2000 (Amendments included)</a></li>
+      <li><a href="3_cyber_crimes.html">3. Types of Cyber Crimes (Phishing, Hacking, etc.)</a></li>
+      <li><a href="4_data_protection.html">4. Data Protection & Privacy Laws (DPDP Bill, 2023)</a></li>
+      <li><a href="5_digital_signature.html">5. Digital Signatures & Electronic Records</a></li>
+      <li><a href="6_cyber_regulations.html">6. Cyber Regulations Appellate Tribunal (CRAT)</a></li>
+      <li><a href="7_it_rules.html">7. Intermediary Guidelines and IT Rules</a></li>
+      <li><a href="8_cyberlaw_enforcement.html">8. Law Enforcement & Investigation Agencies</a></li>
+      <li><a href="9_cyber_forensics.html">9. Cyber Forensics & Evidence in Court</a></li>
+      <li><a href="10_ipr_cyber.html">10. Intellectual Property Rights in Cyberspace</a></li>
+      <li><a href="11_social_media_laws.html">11. Social Media Regulations in India</a></li>
+      <li><a href="12_ecommerce_laws.html">12. E-commerce & Online Transaction Laws</a></li>
+      <li><a href="13_child_safety.html">13. Cyber Laws Related to Child Safety (POCSO & IT Act)</a></li>
+      <li><a href="14_cybersecurity_policies.html">14. National Cyber Security Policy & CERT-IN</a></li>
+      <li><a href="15_case_studies.html">15. Real Case Studies & Landmark Judgements</a></li>
+      <li><a href="16_quiz.html">16. Cyber Law Quiz / Practice Questions</a></li>
+    </ul>
+  </section>
+
+  <!-- Matrix animation JS -->
+  <script>
+    const canvas = document.getElementById('matrixCanvas');
+    const ctx = canvas.getContext('2d');
+
+    canvas.height = window.innerHeight;
+    canvas.width = window.innerWidth;
+
+    const matrixChars = '1010101010101010101010101010101010101010101010';
+    const fontSize = 16;
+    const columns = canvas.width / fontSize;
+    const drops = Array(Math.floor(columns)).fill(1);
+
+    function drawMatrix() {
+      ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+      ctx.fillStyle = '#00ffcc';
+      ctx.font = fontSize + 'px monospace';
+
+      for (let i = 0; i < drops.length; i++) {
+        const text = matrixChars.charAt(Math.floor(Math.random() * matrixChars.length));
+        ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+        if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+          drops[i] = 0;
+        }
+
+        drops[i]++;
+      }
+    }
+
+    setInterval(drawMatrix, 35);
+
+    window.addEventListener('resize', () => {
+      canvas.height = window.innerHeight;
+      canvas.width = window.innerWidth;
+    });
+  </script>
+</body>
+</html>

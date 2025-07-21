@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cybersecurity Learning Hub</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+
+        body {
+            font-family: "VT323", monospace;
+            background-color: #0a0a0a;
+            color: #00ffcc;
+            margin: 0;
+            padding: 0;
+            line-height: 1.8;
+            font-size: 1.4rem;
+            background-image:
+                linear-gradient(to bottom, rgba(0, 255, 170, 0.05), rgba(0, 255, 140, 0.03)),
+                url('https://www.transparenttextures.com/patterns/green-fibers.png'),
+                radial-gradient(circle at center, #101010 0%, #000000 100%);
+            background-repeat: repeat, repeat, no-repeat;
+            background-size: auto, auto, cover;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+
+        h1 {
+            font-size: 3.4rem;
+            color: #00ffcc;
+            margin-bottom: 20px;
+            text-shadow: 0 0 5px #00ffcc, 0 0 10px #00ffaa;
+            text-align: center;
+        }
+
+        h2 {
+            font-size: 2.6rem;
+            color: #00ffee;
+            border-bottom: 2px solid #00ffaa;
+            padding-bottom: 5px;
+            margin-bottom: 15px;
+            text-shadow: 0 0 4px #00ffaa;
+        }
+
+        h3 {
+            font-size: 2rem;
+            text-decoration: underline;
+            color: #ff4c4c;
+            animation: flickerH3 2.5s infinite;
+            margin-top: 30px;
+            margin-bottom: 10px;
+        }
+
+        p {
+            color: #e0e0e0;
+            font-size: 1.5rem;
+            margin-bottom: 18px;
+        }
+
+        img {
+            width: 100%;
+            max-width: 500px;
+            display: block;
+            margin: 0 auto;
+            border-radius: 8px;
+            box-shadow: 0 0 15px #00ffaa55;
+        }
+
+        .last-updated {
+            color: #888;
+            font-size: 1.1rem;
+            text-align: center;
+        }
+
+        .sidebar {
+            background-color: #101010;
+            border: 1px solid #00ffaa55;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+            box-shadow: 0 0 8px #00ffaa33;
+            font-size: 1.4rem;
+        }
+
+        .sidebar h2 {
+            font-size: 2rem;
+            color: #00ffee;
+            border-bottom: 1px solid #00ffaa;
+            margin-bottom: 10px;
+        }
+
+        .sidebar ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .sidebar ul li {
+            padding: 6px 0;
+        }
+
+        .sidebar ul li a {
+            color: #00ffee;
+            text-decoration: none;
+            font-size: 1.4rem;
+        }
+
+        .sidebar ul li a:hover {
+            text-decoration: underline;
+            color: #fbae1f;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: #00ffcc;
+            color: #000;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 20px;
+            font-weight: bold;
+            box-shadow: 0 0 10px #00ffcc, 0 0 20px #00ffaa33;
+            transition: all 0.3s ease;
+            font-size: 1.6rem;
+        }
+
+        .btn:hover {
+            background-color: #f5f5f5;
+            color: #000;
+            animation: glitch 0.4s linear;
+        }
+
+        @keyframes glitch {
+            25% {
+                transform: translateX(-5px);
+                letter-spacing: 2px;
+                background-color: #ff0040;
+            }
+
+            50% {
+                transform: translateX(5px);
+                background-color: #00ffcc;
+            }
+
+            75% {
+                transform: translateX(-3px);
+                background-color: #fbae1f;
+            }
+
+            100% {
+                transform: none;
+            }
+        }
+
+        #welcomeintro h2 {
+            border-bottom: none;
+            display: inline-block;
+            font-size: 2.8rem;
+            color: #00ffcc;
+            font-weight: bold;
+            overflow: hidden;
+            white-space: nowrap;
+            border-right: 3px solid #00ffcc;
+            animation: typing 5s steps(30, end) infinite, blink-caret 0.75s step-end infinite;
+        }
+
+        @keyframes typing {
+            0% {
+                width: 0;
+            }
+
+            50% {
+                width: 100%;
+            }
+
+            100% {
+                width: 0;
+            }
+        }
+
+        @keyframes blink-caret {
+
+            from,
+            to {
+                border-color: transparent;
+            }
+
+            50% {
+                border-color: #00ffcc;
+            }
+        }
+
+        @keyframes flickerH3 {
+
+            0%,
+            19%,
+            21%,
+            23%,
+            25%,
+            54%,
+            56%,
+            100% {
+                opacity: 1;
+                text-shadow: 0 0 3px #ff4c4c, 0 0 7px #ff1a1a;
+            }
+
+            20%,
+            24%,
+            55% {
+                opacity: 0.4;
+                text-shadow: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.6rem;
+            }
+
+            h3 {
+                font-size: 1.3rem;
+            }
+
+            p,
+            li,
+            .sidebar ul li a {
+                font-size: 1.2rem;
+            }
+
+            .btn {
+                font-size: 1.2rem;
+                padding: 10px 20px;
+            }
+
+            #welcomeintro h2 {
+                font-size: 1.6rem;
+            }
+
+            img {
+                max-width: 100%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 20px 15px;
+            }
+
+            h1,
+            h2,
+            h3,
+            p,
+            li {
+                text-align: left;
+            }
+
+            #welcomeintro h2 {
+                text-align: center;
+            }
+
+            .btn {
+                width: 100%;
+                text-align: center;
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="container">
+        <div id="welcomeintro" style="text-align: center;">
+            <h2>Introduction to Digital Forensics</h2>
+        </div>
+        <p class="last-updated" style="text-align: center;">Last Updated: July 10, 2025</p>
+
+        <h2>🌐 Ethical Hacking Tutorial</h2>
+        <p><em>Ethical hacking</em>, also known as penetration testing or white-hat hacking, refers to the professional
+            discipline of assessing an organization's security posture by simulating cyberattacks. These simulations
+            help
+            organizations strengthen their defenses by uncovering vulnerabilities before malicious actors can exploit
+            them.
+        </p>
+        <p>This tutorial is a comprehensive guide tailored for everyone—from cybersecurity newcomers and IT
+            professionals to
+            advanced penetration testers preparing for certifications such as CEH, OSCP, eCPPT, and beyond.</p>
+
+        <h2>🔍 What You'll Learn (Expanded)</h2>
+        <ul>
+            <li><strong>Hacker Mindset:</strong> Dive deep into threat actor psychology, motivations (financial,
+                political,
+                ideological), and real-world hacking scenarios. Learn how to think like an adversary.</li>
+            <li><strong>Complete Attack Lifecycle:</strong> Understand each step of the attack chain: initial access,
+                privilege escalation, persistence, lateral movement, data exfiltration, and post-exploitation cleanup.
+            </li>
+            <li><strong>Tool Mastery:</strong> Become proficient in tools like:
+                <ul>
+                    <li><strong>Nmap:</strong> Network scanning and service fingerprinting.</li>
+                    <li><strong>Metasploit:</strong> Exploit framework for automated exploitation and payload
+                        generation.</li>
+                    <li><strong>Wireshark:</strong> Network protocol analyzer for sniffing and interpreting traffic.
+                    </li>
+                    <li><strong>Burp Suite:</strong> Web vulnerability scanner and proxy tool.</li>
+                    <li><strong>Aircrack-ng:</strong> WiFi auditing suite.</li>
+                    <li><strong>Hydra/Medusa:</strong> Password brute-forcing tools.</li>
+                </ul>
+            </li>
+            <li><strong>Documentation:</strong> Learn how to create professional-grade reports with:
+                <ul>
+                    <li>Executive summary for non-technical stakeholders</li>
+                    <li>Technical details including CVEs, PoCs, screenshots</li>
+                    <li>Risk categorization (CVSS scoring)</li>
+                    <li>Remediation guidelines and verification steps</li>
+                </ul>
+            </li>
+            <li><strong>Legal Boundaries:</strong> Discover how to ethically conduct assessments within the law,
+                including:
+                <ul>
+                    <li>Written authorization and scope</li>
+                    <li>Handling client data responsibly</li>
+                    <li>Understanding cybersecurity laws like GDPR, HIPAA, and IT Act 2000 (India)</li>
+                </ul>
+            </li>
+        </ul>
+
+        <h2>📖 Course Topics — Deep Dive</h2>
+
+        <h3>1. Introduction to Ethical Hacking</h3>
+        <ul>
+            <li><strong>Cybersecurity Basics:</strong> CIA triad, threat landscape, common attack vectors.</li>
+            <li><strong>Types of Hackers:</strong> Script kiddies, Hacktivists, State-sponsored hackers, Cybercriminals.
+            </li>
+            <li><strong>Role Breakdown:</strong> Responsibilities and goals of each group in a security team.</li>
+            <li><strong>Rules of Engagement:</strong> Scoping, exclusions, timeframes, communication protocols.</li>
+        </ul>
+
+        <h3>2. Footprinting & Reconnaissance</h3>
+        <ul>
+            <li><strong>Open Source Intelligence (OSINT):</strong> Gathering data from search engines, social networks,
+                data dumps.</li>
+            <li><strong>Google Dorking:</strong> Using advanced search operators to uncover exposed data and endpoints.
+            </li>
+            <li><strong>Network Mapping:</strong> Traceroute, Netcraft, and DNSDumpster usage.</li>
+        </ul>
+
+        <h3>3. Scanning & Enumeration</h3>
+        <ul>
+            <li><strong>Scanning Strategies:</strong> Stealth scans (SYN), aggressive scans, timing options.</li>
+            <li><strong>Service Detection:</strong> Using version flags in Nmap, banner grabbing.</li>
+            <li><strong>SMB, FTP, SNMP Enumeration:</strong> Identifying weak shares, guest access, public community
+                strings.</li>
+        </ul>
+
+        <h3>4. System Hacking & Exploitation</h3>
+        <ul>
+            <li><strong>Payload Generation:</strong> Custom payloads using msfvenom, Veil, or Shellter.</li>
+            <li><strong>Reverse Shells:</strong> Netcat, Meterpreter, PowerShell payloads.</li>
+            <li><strong>Antivirus Evasion:</strong> Encoding, obfuscation, LOLBins (Living Off the Land Binaries).</li>
+            <li><strong>Windows vs. Linux:</strong> Escalation paths and persistence on both platforms.</li>
+        </ul>
+
+        <h3>5. Sniffing & Session Hijacking</h3>
+        <ul>
+            <li><strong>Network Taps:</strong> Creating packet captures in real environments for analysis.</li>
+            <li><strong>Session Replays:</strong> Hijack Facebook/Twitter sessions over HTTP.</li>
+            <li><strong>DNS Spoofing:</strong> Redirect victims to malicious clones of legitimate sites.</li>
+        </ul>
+
+        <h3>6. Web Application Hacking</h3>
+        <ul>
+            <li><strong>Authentication Bypass:</strong> SQLi, NoSQL injection, logic flaws.</li>
+            <li><strong>CSRF & XSS:</strong> Cookie theft, session hijack, defacement.</li>
+            <li><strong>File Inclusion & Uploads:</strong> Remote and local file inclusion attacks.</li>
+            <li><strong>Race Conditions:</strong> Exploiting time-sensitive logic bugs.</li>
+        </ul>
+
+        <h3>7. Wireless Network Hacking</h3>
+        <ul>
+            <li><strong>Wi-Fi Pentesting Tools:</strong> Airgeddon, Fluxion, Wifite2, Bettercap.</li>
+            <li><strong>Deauthentication Attacks:</strong> Disconnect legitimate users to capture handshakes.</li>
+            <li><strong>WPS Attacks:</strong> Offline/Online brute-force using Reaver.</li>
+        </ul>
+
+        <h3>8. Social Engineering & Physical Security</h3>
+        <ul>
+            <li><strong>Voice Phishing (Vishing):</strong> Gathering info or triggering actions via phone calls.</li>
+            <li><strong>USB Drops:</strong> Infecting machines using malicious USB drives (Rubber Ducky).</li>
+            <li><strong>Cloning Cards:</strong> RFID cloning and physical access bypasses.</li>
+        </ul>
+
+        <h3>9. Penetration Testing Methodology</h3>
+        <ul>
+            <li><strong>NIST & OSSTMM:</strong> Overview of popular testing frameworks.</li>
+            <li><strong>Vulnerability Exploitation Chains:</strong> Chaining multiple low-impact issues into critical
+                findings.</li>
+            <li><strong>Engagement Cleanup:</strong> Clearing logs, restoring states, submitting final deliverables.
+            </li>
+        </ul>
+
+        <h2>💼 Career Opportunities in Ethical Hacking</h2>
+        <ul>
+            <li><strong>Penetration Tester:</strong> Internal and external infrastructure assessments.</li>
+            <li><strong>Red Teamer:</strong> Simulate APTs, conduct multi-stage attacks across people/process/tech.</li>
+            <li><strong>Bug Bounty Hunter:</strong> Work independently or on platforms like HackerOne, BugCrowd.</li>
+            <li><strong>Threat Intelligence Analyst:</strong> Monitor dark web, analyze malware, predict adversary
+                moves.</li>
+            <li><strong>SOC Analyst (Blue Team):</strong> Use knowledge of attack vectors to identify and contain
+                threats.</li>
+            <li><strong>Security Researcher:</strong> Reverse engineer malware, discover 0-days, publish exploits.</li>
+        </ul>
+
+        <h2>📌 Prerequisites</h2>
+        <ul>
+            <li>Basic to intermediate knowledge of TCP/IP, DNS, HTTP protocols.</li>
+            <li>Comfortable with terminal/shell commands (Linux/Bash).</li>
+            <li>Programming logic in Python, PowerShell, JavaScript helpful for scripting and automation.</li>
+            <li>Knowledge of how operating systems manage users, processes, and memory.</li>
+            <li>Understanding virtualization for lab environments: VirtualBox, VMware, Hyper-V, or cloud labs
+                (TryHackMe, Hack The Box).</li>
+        </ul>
+
+        <h2>🎮 Interactive Learning Features</h2>
+        <ul>
+            <li><strong>Hands-on Labs:</strong> Kali Linux, Metasploitable, DVWA, Juice Shop, CTF platforms.</li>
+            <li><strong>Capture the Flag (CTF):</strong> Compete with real-world scenarios that test problem-solving
+                skills.</li>
+            <li><strong>Simulated Attacks:</strong> Launch real payloads in controlled sandboxes.</li>
+            <li><strong>Project-based Exercises:</strong> Build your own keylogger, phishing site, or encryption tool.
+            </li>
+            <li><strong>Cert Prep Quizzes:</strong> CEH-style questions after every module.</li>
+        </ul>
+
+        <h2>🔗 Useful Resources</h2>
+        <ul>
+            <li><a href="https://owasp.org/">OWASP Official Website</a></li>
+            <li><a href="https://nvd.nist.gov/">NIST National Vulnerability Database</a></li>
+            <li><a href="https://portswigger.net/web-security">PortSwigger Web Security Academy</a></li>
+            <li><a href="https://tryhackme.com/">TryHackMe Labs</a></li>
+            <li><a href="https://hackthebox.com/">Hack The Box</a></li>
+        </ul>
+
+        <br><br>
+        <a href="/quizzes/quizindex.html" class="btn">Test Yourself</a>
+    </div>
+
+
+
+
+
+</body>
+
+</html>

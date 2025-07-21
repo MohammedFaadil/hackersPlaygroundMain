@@ -166,7 +166,7 @@
             leaderboardContainer.style.boxShadow = "0 0 20px rgba(0,0,0,0.2)";
             document.getElementById("highScores").appendChild(leaderboardContainer);
 
-            const usersRef = collection(db, "users");
+            const usersRef = collection(db, "leaderboard");
             const snapshot = await getDocs(usersRef);
             const leaderboard = [];
 
@@ -228,3 +228,4 @@
 </body>
 
 </html>
+

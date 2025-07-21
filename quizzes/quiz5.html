@@ -176,7 +176,7 @@
 
 <body>
     <div class="quiz-container" id="quiz-container">
-        <h1>Network Security</h1>
+        <h1>Web Application Security</h1>
         <div class="timer" id="timer" style="display: none;">
             Time left: <span id="time">10</span> seconds
         </div>
@@ -198,107 +198,109 @@
     <script>
         const quizData = [
             {
-                question: "What is the primary purpose of an Intrusion Detection System (IDS)?",
+                question: "What is the goal of web application security?",
                 options: [
-                    "To detect and alert on suspicious activities within a network",
-                    "To prevent data from being accessed externally",
-                    "To encrypt sensitive information",
-                    "To create backup copies of data"
+                    "To speed up web browsing",
+                    "To protect applications from malicious attacks and data breaches",
+                    "To increase ad performance",
+                    "To make web pages load faster"
                 ],
-                answer: "To detect and alert on suspicious activities within a network"
+                answer: "To protect applications from malicious attacks and data breaches"
             },
             {
-                question: "What is the main function of a proxy server in network security?",
+                question: "Which of the following is a common web application vulnerability?",
                 options: [
-                    "To prevent unauthorized data access",
-                    "To cache data for faster access",
-                    "To mask the client’s IP address",
-                    "To encrypt all data"
-                ],
-                answer: "To mask the client’s IP address"
-            },
-            {
-                question: "What does SSL stand for in network security?",
-                options: [
-                    "Secure Socket Layer",
-                    "Secret Security Link",
-                    "Server Socket Login",
-                    "Secure System Layer"
-                ],
-                answer: "Secure Socket Layer"
-            },
-            {
-                question: "Which type of attack floods a network with traffic to disrupt services?",
-                options: [
+                    "DDoS",
                     "Phishing",
-                    "DDoS (Distributed Denial of Service)",
                     "SQL Injection",
-                    "Man-in-the-Middle"
+                    "Bluetooth Sniffing"
                 ],
-                answer: "DDoS (Distributed Denial of Service)"
+                answer: "SQL Injection"
             },
             {
-                question: "What is the purpose of a VPN in network security?",
+                question: "What does XSS stand for?",
                 options: [
-                    "To create a secure, encrypted connection over a less secure network",
-                    "To speed up internet access",
-                    "To provide more bandwidth for the network",
-                    "To protect the physical network infrastructure"
+                    "Extra Secure Socket",
+                    "Cross-Site Scripting",
+                    "Cross Server Session",
+                    "Execute Server Script"
                 ],
-                answer: "To create a secure, encrypted connection over a less secure network"
+                answer: "Cross-Site Scripting"
             },
             {
-                question: "What is a common method used to prevent unauthorized network access?",
+                question: "Which header helps prevent XSS attacks?",
                 options: [
-                    "Password reuse",
-                    "Multi-factor authentication",
-                    "Firewall bypassing",
-                    "Using public Wi-Fi"
+                    "Content-Security-Policy",
+                    "User-Agent",
+                    "Accept-Encoding",
+                    "Host"
                 ],
-                answer: "Multi-factor authentication"
+                answer: "Content-Security-Policy"
             },
             {
-                question: "Which protocol is often used to secure data transmission over the internet?",
+                question: "What is CSRF (Cross-Site Request Forgery)?",
                 options: [
-                    "HTTP",
-                    "FTP",
-                    "HTTPS",
-                    "SMTP"
+                    "Forcing a user to perform unwanted actions unknowingly",
+                    "A method to scan open ports",
+                    "An encryption technique",
+                    "A password cracking tool"
                 ],
-                answer: "HTTPS"
+                answer: "Forcing a user to perform unwanted actions unknowingly"
             },
             {
-                question: "What is a firewall's role in network security?",
+                question: "How can developers prevent SQL Injection?",
                 options: [
-                    "It encrypts all data in the network",
-                    "It creates a barrier between trusted and untrusted networks",
-                    "It monitors and blocks malware",
-                    "It handles all IP address assignments"
+                    "Use JavaScript validation only",
+                    "By encrypting the SQL query",
+                    "Use parameterized queries or prepared statements",
+                    "Using GET requests only"
                 ],
-                answer: "It creates a barrier between trusted and untrusted networks"
+                answer: "Use parameterized queries or prepared statements"
             },
             {
-                question: "What is the purpose of Network Access Control (NAC)?",
+                question: "What is HTTPS primarily used for?",
                 options: [
-                    "To restrict access to the network based on device compliance",
-                    "To manage IP addresses within a network",
-                    "To prevent malware from spreading",
-                    "To control network speed"
+                    "Speeding up page loading",
+                    "Hiding content from the user",
+                    "Encrypting data between browser and server",
+                    "Enhancing font rendering"
                 ],
-                answer: "To restrict access to the network based on device compliance"
+                answer: "Encrypting data between browser and server"
             },
             {
-                question: "What is packet sniffing?",
+                question: "What is a secure way to store passwords in a web application?",
                 options: [
-                    "Intercepting and analyzing network packets",
-                    "Flooding the network with malicious packets",
-                    "Encrypting network traffic",
-                    "Hiding IP addresses"
+                    "Plaintext format",
+                    "MD5 without salt",
+                    "Hashed and salted using a secure algorithm like bcrypt",
+                    "In browser cookies"
                 ],
-                answer: "Intercepting and analyzing network packets"
+                answer: "Hashed and salted using a secure algorithm like bcrypt"
             },
-
+            {
+                question: "What is the purpose of input validation in web apps?",
+                options: [
+                    "To make forms look nice",
+                    "To ensure users complete all fields",
+                    "To prevent injection and malicious inputs",
+                    "To reduce network traffic"
+                ],
+                answer: "To prevent injection and malicious inputs"
+            },
+            {
+                question: "Which OWASP list is widely followed for securing web applications?",
+                options: [
+                    "OWASP Top 10",
+                    "OWASP Secure Web 50",
+                    "CVE 100",
+                    "ISO 9001"
+                ],
+                answer: "OWASP Top 10"
+            }
         ];
+
+
+
 
         let currentQuestion = 0;
         let score = 0;

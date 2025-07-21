@@ -176,7 +176,7 @@
 
 <body>
     <div class="quiz-container" id="quiz-container">
-        <h1>Network Security</h1>
+        <h1>IT ACT: 2000</h1>
         <div class="timer" id="timer" style="display: none;">
             Time left: <span id="time">10</span> seconds
         </div>
@@ -192,113 +192,118 @@
             <h2>Quiz Finished!</h2>
             <p>Your Score: <span id="scoreText"></span></p>
             <button onclick="location.reload()">Play Again 🔄</button>
+            <button onclick="window.location.href='/learn/cyber_laws.html'" style="margin-left: 10px;">Home</button>
+
+
         </div>
     </div>
 
     <script>
         const quizData = [
             {
-                question: "What is the primary purpose of an Intrusion Detection System (IDS)?",
+                question: "When did the Information Technology Act, 2000 come into force?",
                 options: [
-                    "To detect and alert on suspicious activities within a network",
-                    "To prevent data from being accessed externally",
-                    "To encrypt sensitive information",
-                    "To create backup copies of data"
+                    "1 January 2000",
+                    "17 October 2000",
+                    "15 August 2001",
+                    "2 April 1999"
                 ],
-                answer: "To detect and alert on suspicious activities within a network"
+                answer: "17 October 2000"
             },
             {
-                question: "What is the main function of a proxy server in network security?",
+                question: "Which international model influenced the drafting of the IT Act, 2000?",
                 options: [
-                    "To prevent unauthorized data access",
-                    "To cache data for faster access",
-                    "To mask the client’s IP address",
-                    "To encrypt all data"
+                    "UN Charter on Cybercrime",
+                    "WTO E-Commerce Directive",
+                    "UNCITRAL Model Law on E-Commerce",
+                    "OECD Cyber Principles"
                 ],
-                answer: "To mask the client’s IP address"
+                answer: "UNCITRAL Model Law on E-Commerce"
             },
             {
-                question: "What does SSL stand for in network security?",
+                question: "What was the main purpose of the IT (Amendment) Act, 2008?",
                 options: [
-                    "Secure Socket Layer",
-                    "Secret Security Link",
-                    "Server Socket Login",
-                    "Secure System Layer"
+                    "To introduce data localization laws",
+                    "To regulate telecom spectrum",
+                    "To include new cyber offenses like cyber terrorism and identity theft",
+                    "To replace the IT Act completely"
                 ],
-                answer: "Secure Socket Layer"
+                answer: "To include new cyber offenses like cyber terrorism and identity theft"
             },
             {
-                question: "Which type of attack floods a network with traffic to disrupt services?",
+                question: "Which section of the IT Act defines 'cyber terrorism'?",
                 options: [
-                    "Phishing",
-                    "DDoS (Distributed Denial of Service)",
-                    "SQL Injection",
-                    "Man-in-the-Middle"
+                    "Section 43",
+                    "Section 66F",
+                    "Section 67B",
+                    "Section 80"
                 ],
-                answer: "DDoS (Distributed Denial of Service)"
+                answer: "Section 66F"
             },
             {
-                question: "What is the purpose of a VPN in network security?",
+                question: "Which section of the IT Act ensures the legal validity of electronic records?",
                 options: [
-                    "To create a secure, encrypted connection over a less secure network",
-                    "To speed up internet access",
-                    "To provide more bandwidth for the network",
-                    "To protect the physical network infrastructure"
+                    "Section 4",
+                    "Section 7A",
+                    "Section 66C",
+                    "Section 10A"
                 ],
-                answer: "To create a secure, encrypted connection over a less secure network"
+                answer: "Section 4"
             },
             {
-                question: "What is a common method used to prevent unauthorized network access?",
+                question: "Under which section can the government intercept information in the interest of national security?",
                 options: [
-                    "Password reuse",
-                    "Multi-factor authentication",
-                    "Firewall bypassing",
-                    "Using public Wi-Fi"
+                    "Section 69",
+                    "Section 43A",
+                    "Section 66B",
+                    "Section 67"
                 ],
-                answer: "Multi-factor authentication"
+                answer: "Section 69"
             },
             {
-                question: "Which protocol is often used to secure data transmission over the internet?",
+                question: "Which authority certifies digital signatures in India under the IT Act?",
                 options: [
-                    "HTTP",
-                    "FTP",
-                    "HTTPS",
-                    "SMTP"
+                    "Cyber Police Department",
+                    "Digital Security Bureau",
+                    "Controller of Certifying Authorities (CCA)",
+                    "National Digital Trust Agency"
                 ],
-                answer: "HTTPS"
+                answer: "Controller of Certifying Authorities (CCA)"
             },
             {
-                question: "What is a firewall's role in network security?",
+                question: "Which section of the IT Act deals with the protection of sensitive personal data?",
                 options: [
-                    "It encrypts all data in the network",
-                    "It creates a barrier between trusted and untrusted networks",
-                    "It monitors and blocks malware",
-                    "It handles all IP address assignments"
+                    "Section 72",
+                    "Section 43A",
+                    "Section 10B",
+                    "Section 66E"
                 ],
-                answer: "It creates a barrier between trusted and untrusted networks"
+                answer: "Section 43A"
             },
             {
-                question: "What is the purpose of Network Access Control (NAC)?",
+                question: "Which section of the IT Act was struck down by the Supreme Court in the Shreya Singhal case?",
                 options: [
-                    "To restrict access to the network based on device compliance",
-                    "To manage IP addresses within a network",
-                    "To prevent malware from spreading",
-                    "To control network speed"
+                    "Section 66A",
+                    "Section 67A",
+                    "Section 69A",
+                    "Section 43B"
                 ],
-                answer: "To restrict access to the network based on device compliance"
+                answer: "Section 66A"
             },
             {
-                question: "What is packet sniffing?",
+                question: "What is the maximum imprisonment for cyber terrorism under Section 66F of the IT Act?",
                 options: [
-                    "Intercepting and analyzing network packets",
-                    "Flooding the network with malicious packets",
-                    "Encrypting network traffic",
-                    "Hiding IP addresses"
+                    "3 years",
+                    "5 years",
+                    "10 years",
+                    "Life imprisonment"
                 ],
-                answer: "Intercepting and analyzing network packets"
-            },
+                answer: "Life imprisonment"
+            }
 
         ];
+
+
 
         let currentQuestion = 0;
         let score = 0;
@@ -428,8 +433,76 @@
             finalScore.style.display = 'block';
             scoreText.textContent = `${score} / ${quizData.length}`;
             progressBar.style.width = `100%`;
+
+            if (typeof saveQuizScore === 'function') {
+                saveQuizScore(score);
+            }
+
+            if (typeof markTopicComplete === 'function') {
+                markTopicComplete("overview");
+            }
         }
+
+
+
     </script>
+    <script type="module">
+        // Firebase SDK imports
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-app.js";
+        import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-auth.js";
+        import { getFirestore, doc, setDoc } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-firestore.js";
+
+        // Firebase config
+        const firebaseConfig = {
+            apiKey: "AIzaSyBt7je8Ga9fKVJ7Pu2Ok8HvbFaLV5Qe1ts",
+            authDomain: "hackersplayground-ca1a1.firebaseapp.com",
+            projectId: "hackersplayground-ca1a1",
+            storageBucket: "hackersplayground-ca1a1.appspot.com",
+            messagingSenderId: "597874916220",
+            appId: "1:597874916220:web:85ad84575aac58ce4c82f9",
+            measurementId: "G-PSC705VYNS"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+        const db = getFirestore(app);
+
+        // Save score to Firestore
+        async function saveScoreToFirestore(score) {
+            const user = auth.currentUser;
+            if (!user) {
+                console.warn("User not authenticated. Cannot save score.");
+                return;
+            }
+
+            const docRef = doc(db, "leaderboard", user.uid);
+            const payload = {
+                email: user.email,
+                name: user.displayName || user.email.split("@")[0],
+                scores: {
+                    quiz1: score
+                }
+            };
+
+            try {
+                await setDoc(docRef, payload, { merge: true });
+                console.log("Score updated successfully");
+            } catch (error) {
+                console.error("Error saving score: ", error);
+            }
+        }
+
+        // Hook to expose saving to quiz logic
+        onAuthStateChanged(auth, (user) => {
+            if (user) {
+                window.saveQuizScore = (score) => saveScoreToFirestore(score);
+            } else {
+                window.saveQuizScore = () => console.warn("User not signed in, score not saved.");
+            }
+        });
+    </script>
+
 </body>
 
 </html>

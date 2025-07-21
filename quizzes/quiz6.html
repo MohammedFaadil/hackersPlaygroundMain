@@ -176,7 +176,7 @@
 
 <body>
     <div class="quiz-container" id="quiz-container">
-        <h1>Network Security</h1>
+        <h1>Social Engineering</h1>
         <div class="timer" id="timer" style="display: none;">
             Time left: <span id="time">10</span> seconds
         </div>
@@ -198,107 +198,109 @@
     <script>
         const quizData = [
             {
-                question: "What is the primary purpose of an Intrusion Detection System (IDS)?",
+                question: "What is social engineering in cybersecurity?",
                 options: [
-                    "To detect and alert on suspicious activities within a network",
-                    "To prevent data from being accessed externally",
-                    "To encrypt sensitive information",
-                    "To create backup copies of data"
+                    "A software testing method",
+                    "Manipulating people to give up confidential information",
+                    "A hardware design process",
+                    "Encrypting personal data on social media"
                 ],
-                answer: "To detect and alert on suspicious activities within a network"
+                answer: "Manipulating people to give up confidential information"
             },
             {
-                question: "What is the main function of a proxy server in network security?",
+                question: "Which of the following is an example of social engineering?",
                 options: [
-                    "To prevent unauthorized data access",
-                    "To cache data for faster access",
-                    "To mask the client’s IP address",
-                    "To encrypt all data"
+                    "Using a brute-force attack",
+                    "Convincing an employee to reveal their password over a phone call",
+                    "Scanning a network for open ports",
+                    "Running antivirus software"
                 ],
-                answer: "To mask the client’s IP address"
+                answer: "Convincing an employee to reveal their password over a phone call"
             },
             {
-                question: "What does SSL stand for in network security?",
+                question: "What is pretexting in the context of social engineering?",
                 options: [
-                    "Secure Socket Layer",
-                    "Secret Security Link",
-                    "Server Socket Login",
-                    "Secure System Layer"
+                    "Sending spam emails",
+                    "Creating a fake scenario to steal information",
+                    "Guessing passwords repeatedly",
+                    "Sniffing network traffic"
                 ],
-                answer: "Secure Socket Layer"
+                answer: "Creating a fake scenario to steal information"
             },
             {
-                question: "Which type of attack floods a network with traffic to disrupt services?",
+                question: "What is the main goal of baiting?",
                 options: [
-                    "Phishing",
-                    "DDoS (Distributed Denial of Service)",
-                    "SQL Injection",
-                    "Man-in-the-Middle"
+                    "To overload a server",
+                    "To trick users into downloading malware by offering something tempting",
+                    "To encrypt user data",
+                    "To improve user engagement"
                 ],
-                answer: "DDoS (Distributed Denial of Service)"
+                answer: "To trick users into downloading malware by offering something tempting"
             },
             {
-                question: "What is the purpose of a VPN in network security?",
+                question: "Which is a common form of physical social engineering?",
                 options: [
-                    "To create a secure, encrypted connection over a less secure network",
-                    "To speed up internet access",
-                    "To provide more bandwidth for the network",
-                    "To protect the physical network infrastructure"
+                    "Dumpster diving",
+                    "Email spoofing",
+                    "DDoS attacks",
+                    "Session hijacking"
                 ],
-                answer: "To create a secure, encrypted connection over a less secure network"
+                answer: "Dumpster diving"
             },
             {
-                question: "What is a common method used to prevent unauthorized network access?",
+                question: "What is tailgating in cybersecurity?",
                 options: [
-                    "Password reuse",
-                    "Multi-factor authentication",
-                    "Firewall bypassing",
-                    "Using public Wi-Fi"
+                    "Accessing data from an open network",
+                    "Following someone into a restricted area without authorization",
+                    "Installing a keylogger on a public computer",
+                    "Reusing old credentials"
                 ],
-                answer: "Multi-factor authentication"
+                answer: "Following someone into a restricted area without authorization"
             },
             {
-                question: "Which protocol is often used to secure data transmission over the internet?",
+                question: "How can organizations reduce social engineering risks?",
                 options: [
-                    "HTTP",
-                    "FTP",
-                    "HTTPS",
-                    "SMTP"
+                    "Update software regularly",
+                    "Only use strong passwords",
+                    "Train employees on awareness and verify identities",
+                    "Block social media websites"
                 ],
-                answer: "HTTPS"
+                answer: "Train employees on awareness and verify identities"
             },
             {
-                question: "What is a firewall's role in network security?",
+                question: "What role does urgency play in social engineering attacks?",
                 options: [
-                    "It encrypts all data in the network",
-                    "It creates a barrier between trusted and untrusted networks",
-                    "It monitors and blocks malware",
-                    "It handles all IP address assignments"
+                    "It slows down decision-making",
+                    "It makes users skeptical",
+                    "It pressures victims into acting quickly without thinking",
+                    "It encrypts the user's device"
                 ],
-                answer: "It creates a barrier between trusted and untrusted networks"
+                answer: "It pressures victims into acting quickly without thinking"
             },
             {
-                question: "What is the purpose of Network Access Control (NAC)?",
+                question: "What is 'quid pro quo' in social engineering?",
                 options: [
-                    "To restrict access to the network based on device compliance",
-                    "To manage IP addresses within a network",
-                    "To prevent malware from spreading",
-                    "To control network speed"
+                    "An attack using fake antivirus pop-ups",
+                    "An offer of something in exchange for sensitive information",
+                    "A network penetration method",
+                    "An exploit in database software"
                 ],
-                answer: "To restrict access to the network based on device compliance"
+                answer: "An offer of something in exchange for sensitive information"
             },
             {
-                question: "What is packet sniffing?",
+                question: "Which of the following is a sign of a potential social engineering attempt?",
                 options: [
-                    "Intercepting and analyzing network packets",
-                    "Flooding the network with malicious packets",
-                    "Encrypting network traffic",
-                    "Hiding IP addresses"
+                    "A call requesting immediate password reset without verification",
+                    "An official email from your IT department",
+                    "A newsletter with monthly updates",
+                    "A secure message through a known app"
                 ],
-                answer: "Intercepting and analyzing network packets"
-            },
-
+                answer: "A call requesting immediate password reset without verification"
+            }
         ];
+
+
+
 
         let currentQuestion = 0;
         let score = 0;

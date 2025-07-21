@@ -176,7 +176,7 @@
 
 <body>
     <div class="quiz-container" id="quiz-container">
-        <h1>Network Security</h1>
+        <h1>Clolud Security</h1>
         <div class="timer" id="timer" style="display: none;">
             Time left: <span id="time">10</span> seconds
         </div>
@@ -198,107 +198,109 @@
     <script>
         const quizData = [
             {
-                question: "What is the primary purpose of an Intrusion Detection System (IDS)?",
+                question: "What is cloud security?",
                 options: [
-                    "To detect and alert on suspicious activities within a network",
-                    "To prevent data from being accessed externally",
-                    "To encrypt sensitive information",
-                    "To create backup copies of data"
+                    "Protecting physical servers only",
+                    "Securing traditional desktop environments",
+                    "Protecting data, applications, and infrastructure in the cloud",
+                    "Installing antivirus on personal devices"
                 ],
-                answer: "To detect and alert on suspicious activities within a network"
+                answer: "Protecting data, applications, and infrastructure in the cloud"
             },
             {
-                question: "What is the main function of a proxy server in network security?",
+                question: "Which of the following is a major concern in cloud computing?",
                 options: [
-                    "To prevent unauthorized data access",
-                    "To cache data for faster access",
-                    "To mask the client’s IP address",
-                    "To encrypt all data"
+                    "Low battery on devices",
+                    "Lack of Wi-Fi",
+                    "Data breaches due to shared environments",
+                    "Too much storage availability"
                 ],
-                answer: "To mask the client’s IP address"
+                answer: "Data breaches due to shared environments"
             },
             {
-                question: "What does SSL stand for in network security?",
+                question: "What is multi-tenancy in cloud computing?",
                 options: [
-                    "Secure Socket Layer",
-                    "Secret Security Link",
-                    "Server Socket Login",
-                    "Secure System Layer"
+                    "Multiple cloud providers working together",
+                    "Using multiple laptops for one service",
+                    "Multiple customers sharing the same infrastructure",
+                    "Having more than one firewall"
                 ],
-                answer: "Secure Socket Layer"
+                answer: "Multiple customers sharing the same infrastructure"
             },
             {
-                question: "Which type of attack floods a network with traffic to disrupt services?",
+                question: "Which model gives the cloud provider the most control?",
                 options: [
-                    "Phishing",
-                    "DDoS (Distributed Denial of Service)",
-                    "SQL Injection",
-                    "Man-in-the-Middle"
+                    "SaaS (Software as a Service)",
+                    "PaaS (Platform as a Service)",
+                    "IaaS (Infrastructure as a Service)",
+                    "VPN (Virtual Private Network)"
                 ],
-                answer: "DDoS (Distributed Denial of Service)"
+                answer: "SaaS (Software as a Service)"
             },
             {
-                question: "What is the purpose of a VPN in network security?",
+                question: "What is the best way to ensure secure access to cloud resources?",
                 options: [
-                    "To create a secure, encrypted connection over a less secure network",
-                    "To speed up internet access",
-                    "To provide more bandwidth for the network",
-                    "To protect the physical network infrastructure"
+                    "Allowing access from all IP addresses",
+                    "Using multi-factor authentication (MFA)",
+                    "Creating shared user accounts",
+                    "Disabling all encryption"
                 ],
-                answer: "To create a secure, encrypted connection over a less secure network"
+                answer: "Using multi-factor authentication (MFA)"
             },
             {
-                question: "What is a common method used to prevent unauthorized network access?",
+                question: "What does data encryption in the cloud help prevent?",
                 options: [
-                    "Password reuse",
-                    "Multi-factor authentication",
-                    "Firewall bypassing",
-                    "Using public Wi-Fi"
+                    "Data backups",
+                    "Automatic logouts",
+                    "Unauthorized access to sensitive data",
+                    "Faster network speed"
                 ],
-                answer: "Multi-factor authentication"
+                answer: "Unauthorized access to sensitive data"
             },
             {
-                question: "Which protocol is often used to secure data transmission over the internet?",
+                question: "Which term describes the process of evaluating cloud vendor security practices?",
                 options: [
-                    "HTTP",
-                    "FTP",
-                    "HTTPS",
-                    "SMTP"
+                    "Threat hunting",
+                    "Cloud auditing",
+                    "Keylogging",
+                    "Firewall management"
                 ],
-                answer: "HTTPS"
+                answer: "Cloud auditing"
             },
             {
-                question: "What is a firewall's role in network security?",
+                question: "Who is typically responsible for securing the cloud infrastructure?",
                 options: [
-                    "It encrypts all data in the network",
-                    "It creates a barrier between trusted and untrusted networks",
-                    "It monitors and blocks malware",
-                    "It handles all IP address assignments"
+                    "The end user only",
+                    "Cloud provider only",
+                    "Both the cloud provider and the customer",
+                    "The hardware manufacturer"
                 ],
-                answer: "It creates a barrier between trusted and untrusted networks"
+                answer: "Both the cloud provider and the customer"
             },
             {
-                question: "What is the purpose of Network Access Control (NAC)?",
+                question: "What does the 'shared responsibility model' mean in cloud security?",
                 options: [
-                    "To restrict access to the network based on device compliance",
-                    "To manage IP addresses within a network",
-                    "To prevent malware from spreading",
-                    "To control network speed"
+                    "The provider manages everything",
+                    "Only the customer is responsible",
+                    "Security duties are divided between provider and customer",
+                    "Nobody is responsible"
                 ],
-                answer: "To restrict access to the network based on device compliance"
+                answer: "Security duties are divided between provider and customer"
             },
             {
-                question: "What is packet sniffing?",
+                question: "What is a key risk of poorly configured cloud storage buckets?",
                 options: [
-                    "Intercepting and analyzing network packets",
-                    "Flooding the network with malicious packets",
-                    "Encrypting network traffic",
-                    "Hiding IP addresses"
+                    "Data being overwritten too quickly",
+                    "Delayed backups",
+                    "Public exposure of sensitive data",
+                    "Lack of access to VPNs"
                 ],
-                answer: "Intercepting and analyzing network packets"
-            },
-
+                answer: "Public exposure of sensitive data"
+            }
         ];
+
+
+
 
         let currentQuestion = 0;
         let score = 0;

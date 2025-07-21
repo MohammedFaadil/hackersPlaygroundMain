@@ -1,53 +1,44 @@
-<!-- quizzes/quiz1.html -->
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Cybersecurity Introduction Quiz</title>
+    <title>Cybersecurity Quiz</title>
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet" />
     <style>
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-
-            color: #343a40;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            font-family: 'Share Tech Mono', monospace;
+            background-image: url('/images/hck.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #00ffcc;
             margin: 0;
             text-align: center;
-            animation: fadeIn 1s;
             min-height: 100vh;
-            height: auto;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
             flex-direction: column;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-
-            to {
-                opacity: 1;
-            }
+            padding: 30px;
         }
 
         .quiz-container {
-            border: 2px solid #343a40;
+            background: rgba(0, 0, 0, 0.75);
+            border: 2px solid #00ffcc;
             border-radius: 15px;
             padding: 30px;
-            background-color: #e3f9fb;
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
-            width: 80%;
-            max-width: 1200px;
-            transition: transform 0.3s;
-            animation: slideIn 0.5s;
-            opacity: 90%;
+            width: 90%;
+            max-width: 800px;
+            margin: auto;
+            box-shadow: 0 0 25px #00ffcc66;
+            animation: slideIn 0.8s ease-in-out;
         }
 
         @keyframes slideIn {
             from {
-                transform: translateY(-20px);
+                transform: translateY(-30px);
                 opacity: 0;
             }
 
@@ -57,170 +48,450 @@
             }
         }
 
-        .quiz-container:hover {
-            transform: scale(1.02);
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #00ffcc;
+            animation: fadeIn 1s ease;
         }
 
-        h1 {
-            color: #000000;
+        .timer {
+            font-size: 1.2rem;
             margin-bottom: 20px;
         }
 
         .question {
-            font-size: 24px;
+            font-size: 1.4rem;
             margin: 20px 0;
-            opacity: 0;
-            transition: opacity 0.5s;
-            font-family: sans-serif;
             font-weight: bold;
+            color: #ffffff;
+            animation: fadeIn 0.6s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .options {
             list-style: none;
             padding: 0;
-            font-family: sans-serif;
-            font-size: large;
         }
 
         .options li {
-            margin: 10px 0;
+            background-color: #0a0a0a;
+            color: #00ffcc;
+            border: 1px solid #00ffcc88;
             padding: 15px;
-            border: 2px solid #000000;
+            margin: 10px 0;
             border-radius: 10px;
             cursor: pointer;
-            transition: background 0.3s, transform 0.2s, box-shadow 0.2s;
-            background-color: #f9f9f9;
+            transition: all 0.3s ease;
+            animation: fadeIn 0.6s ease;
         }
 
         .options li:hover {
-            background-color: #001f3f;
-            color: white;
-            transform: scale(1.05);
-            box-shadow: 0 0 10px rgba(128, 198, 248, 0.5);
+            background-color: #00ffcc22;
+            color: #fff;
+            transform: scale(1.03);
+            box-shadow: 0 0 12px #00ffcc66;
+        }
+
+        .options li.correct {
+            background-color: #28a745 !important;
+            color: #fff;
+            box-shadow: 0 0 15px #28a745;
+        }
+
+        .options li.wrong {
+            background-color: #dc3545 !important;
+            color: #fff;
+            box-shadow: 0 0 15px #dc3545;
         }
 
         button {
-            background-color: #FF5733;
-            color: white;
+            margin-top: 15px;
+            background-color: #00ffcc;
+            color: #000;
             border: none;
+            padding: 12px 25px;
+            font-size: 1rem;
+            font-weight: bold;
             border-radius: 10px;
-            padding: 10px 20px;
             cursor: pointer;
-            transition: background 0.3s, transform 0.2s;
-            font-size: 18px;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 15px #00ffcc66;
         }
 
         button:hover {
-            background-color: #C70039;
-            transform: scale(1.05);
-        }
-
-        .timer {
-            font-size: 18px;
-            color: #28a745;
-            margin-bottom: 20px;
-        }
-
-        .result {
-            font-size: 20px;
-            margin-top: 20px;
-            color: red;
-        }
-
-        .progress-bar {
-            height: 10px;
-            background-color: #FF5733;
-            transition: width 0.3s;
-            border-radius: 5px;
+            background-color: #0affd1;
+            box-shadow: 0 0 25px #00ffcc;
         }
 
         .progress-container {
             width: 100%;
-            background-color: #f1eaea;
-            border-radius: 5px;
-            margin: 20px 0;
+            background-color: #222;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .progress-bar {
+            height: 10px;
+            background-color: #00ffcc;
+            border-radius: 10px;
+            transition: width 0.4s ease;
+        }
+
+        .result {
+            font-size: 1.2rem;
+            color: #ff6666;
+            margin-top: 20px;
+        }
+
+        .correct-answer {
+            color: #00ffcc;
+            font-size: 1rem;
+            margin-top: 10px;
         }
 
         .final-score {
             display: none;
             padding: 20px;
             border-radius: 10px;
-            background-color: #f7f7f7;
+            background-color: #111;
+            border: 2px solid #00ffcc;
             margin-top: 20px;
-            border: 1px solid #ccc;
-        }
-
-        .final-score h2 {
-            color: #343a40;
-        }
-
-        .score-details {
-            font-size: 18px;
-            margin: 10px 0;
+            color: #00ffcc;
+            animation: fadeIn 0.8s ease;
         }
     </style>
 </head>
 
-<body
-    style="background-image: url('/images/hck.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat; height: 1100px;">
-
+<body>
     <div class="quiz-container" id="quiz-container">
-        <h1>Cybersecurity Introduction Quiz</h1>
-        <div class="timer">Time left: <span id="time">10</span> seconds</div>
+        <h1>Introduction to Cybersecurity</h1>
+        <div class="timer" id="timer" style="display: none;">
+            Time left: <span id="time">10</span> seconds
+        </div>
         <div class="progress-container">
-            <div class="progress-bar" id="progressBar" style="width: 0;"></div>
+            <div class="progress-bar" id="progressBar" style="width: 0%;"></div>
         </div>
         <div class="question" id="question"></div>
         <ul class="options" id="options"></ul>
-        <button id="nextBtn" style="display: none;">Next Question</button>
-        <div class="result" id="result"></div>
+        <div class="correct-answer" id="correctAnswer"></div>
+        <button id="startBtn">Start Quiz</button>
+        <button id="nextBtn" style="display: none;">Next</button>
         <div class="final-score" id="finalScore">
             <h2>Quiz Finished!</h2>
-            <p class="score-details">Your final score is: <span id="finalScoreResult"></span></p>
-            <p class="score-details">Correct Answers: <span id="correctCount"></span></p>
-            <p class="score-details">Incorrect Answers: <span id="incorrectCount"></span></p>
-            <button onclick="location.reload()">Play Again</button>
+            <p>Your Score: <span id="scoreText"></span></p>
+            <button onclick="location.reload()">Play Again 🔄</button>
         </div>
     </div>
-    <div class="quiz-container" id="leaderboardSection" style="margin-top: 30px; display: none;">
-        <h2>🏆 Leaderboard</h2>
-        <ul id="leaderboardList" style="font-size: 18px; list-style: none; padding: 0;"></ul>
-    </div>
-
-    <!-- QUIZ LOGIC + FIREBASE SAVE -->
 
     <script>
         const quizData = [
             {
-                question: "What is the primary purpose of a firewall?",
-                options: ["Prevent unauthorized access", "Speed up the network", "Store data", "Encrypt emails"],
-                answer: "Prevent unauthorized access"
+                question: "What is phishing?",
+                options: [
+                    "A way to improve internet speed",
+                    "A technique to steal sensitive data via deceptive emails",
+                    "A tool for encryption",
+                    "A secure login system"
+                ],
+                answer: "A technique to steal sensitive data via deceptive emails"
             },
             {
-                question: "What does VPN stand for?",
-                options: ["Virtual Private Network", "Vulnerability Protection Network", "Very Private Network", "Variable Private Node"],
-                answer: "Virtual Private Network"
+                question: "Which of the following is a common sign of a phishing email?",
+                options: [
+                    "Professional grammar and company domain",
+                    "Personalized greeting from your friend",
+                    "Urgent call to action with a suspicious link",
+                    "No links or attachments"
+                ],
+                answer: "Urgent call to action with a suspicious link"
             },
             {
-                question: "What is the most common type of cyber attack?",
-                options: ["Phishing", "Malware", "Ransomware", "DDoS"],
-                answer: "Phishing"
+                question: "What should you do if you receive a suspicious email from your bank?",
+                options: [
+                    "Click the link and log in to verify",
+                    "Forward it to your friends",
+                    "Ignore it and delete immediately",
+                    "Contact the bank directly through official channels"
+                ],
+                answer: "Contact the bank directly through official channels"
             },
             {
-                question: "What is two-factor authentication?",
-                options: ["Two passwords", "Password + SMS code", "Password + Email", "Two separate passwords"],
-                answer: "Password + SMS code"
+                question: "Which of the following could be a phishing attempt?",
+                options: [
+                    "An email asking to confirm your password",
+                    "A secured message from your boss via Slack",
+                    "A message from a verified domain",
+                    "A company-wide memo from HR"
+                ],
+                answer: "An email asking to confirm your password"
             },
             {
-                question: "Which of the following is a strong password?",
-                options: ["password123", "qwerty", "P@55w0rd!", "letmein"],
-                answer: "P@55w0rd!"
+                question: "How can you best protect yourself from phishing attacks?",
+                options: [
+                    "Use simple passwords for faster access",
+                    "Enable pop-ups for all websites",
+                    "Regularly update your antivirus software and be cautious with links",
+                    "Share your credentials only with trusted people"
+                ],
+                answer: "Regularly update your antivirus software and be cautious with links"
+            },
+            {
+                question: "What does a phishing website often try to imitate?",
+                options: [
+                    "A random blog",
+                    "A gaming site",
+                    "A legitimate website like your bank or email provider",
+                    "A personal social media account"
+                ],
+                answer: "A legitimate website like your bank or email provider"
+            },
+            {
+                question: "Why do attackers use phishing tactics?",
+                options: [
+                    "To promote free giveaways",
+                    "To test users' alertness",
+                    "To gain unauthorized access to confidential information",
+                    "To improve cybersecurity awareness"
+                ],
+                answer: "To gain unauthorized access to confidential information"
+            },
+            {
+                question: "What is 'spear phishing'?",
+                options: [
+                    "A phishing attack targeted at a specific individual or organization",
+                    "A fake online fishing game",
+                    "A physical USB-based attack",
+                    "An attack through phone calls"
+                ],
+                answer: "A phishing attack targeted at a specific individual or organization"
+            },
+            {
+                question: "Which of these URLs is most likely a phishing link?",
+                options: [
+                    "https://secure.paypal.com",
+                    "https://paypal.com.secure-login.info",
+                    "https://www.google.com",
+                    "https://bankofamerica.com"
+                ],
+                answer: "https://paypal.com.secure-login.info"
+            },
+            {
+                question: "What is 'vishing' in cybersecurity?",
+                options: [
+                    "Visual phishing attacks",
+                    "Phishing via SMS",
+                    "Phishing via phone calls or voice messages",
+                    "Video-based hacking tutorials"
+                ],
+                answer: "Phishing via phone calls or voice messages"
             }
         ];
+
+
+        let currentQuestion = 0;
+        let score = 0;
+        let timer;
+        let timeLeft = 10;
+
+        const startBtn = document.getElementById('startBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const questionEl = document.getElementById('question');
+        const optionsEl = document.getElementById('options');
+        const timeEl = document.getElementById('time');
+        const timerBox = document.getElementById('timer');
+        const progressBar = document.getElementById('progressBar');
+        const correctAnswerBox = document.getElementById('correctAnswer');
+        const finalScore = document.getElementById('finalScore');
+        const scoreText = document.getElementById('scoreText');
+
+        startBtn.addEventListener('click', () => {
+            startBtn.style.display = 'none';
+            timerBox.style.display = 'block';
+            loadQuestion();
+        });
+
+        nextBtn.addEventListener('click', () => {
+            currentQuestion++;
+            correctAnswerBox.innerText = '';
+            if (currentQuestion < quizData.length) {
+                loadQuestion();
+            } else {
+                showFinalScore();
+            }
+        });
+
+        function loadQuestion() {
+            resetState();
+            const q = quizData[currentQuestion];
+            questionEl.textContent = `Q${currentQuestion + 1}. ${q.question}`;
+            q.options.forEach(option => {
+                const li = document.createElement('li');
+                li.textContent = option;
+                li.addEventListener('click', () => checkAnswer(option));
+                optionsEl.appendChild(li);
+            });
+            startTimer();
+            updateProgressBar();
+        }
+
+        function checkAnswer(selectedText) {
+            stopTimer();
+            const correct = quizData[currentQuestion].answer;
+            const options = optionsEl.querySelectorAll('li');
+
+            options.forEach((li) => {
+                li.style.pointerEvents = 'none'; // disable further clicks
+
+                if (li.textContent === correct) {
+                    li.classList.add('correct');
+                }
+
+                if (li.textContent === selectedText && selectedText !== correct) {
+                    li.classList.add('wrong');
+                }
+            });
+
+            if (selectedText === correct) {
+                score++;
+                correctAnswerBox.innerText = '✅ Correct!';
+            } else {
+                correctAnswerBox.innerText = `❌ Incorrect! Correct Answer: ${correct}`;
+            }
+
+            nextBtn.style.display = 'inline-block';
+        }
+
+        function startTimer() {
+            timeLeft = 10;
+            timeEl.textContent = timeLeft;
+            timer = setInterval(() => {
+                timeLeft--;
+                timeEl.textContent = timeLeft;
+                if (timeLeft <= 0) {
+                    stopTimer();
+                    showCorrectAnswer();
+                }
+            }, 1000);
+        }
+
+        function stopTimer() {
+            clearInterval(timer);
+        }
+
+        function showCorrectAnswer() {
+            const correct = quizData[currentQuestion].answer;
+            const options = optionsEl.querySelectorAll('li');
+
+            options.forEach((li) => {
+                li.style.pointerEvents = 'none';
+
+                if (li.textContent === correct) {
+                    li.classList.add('correct');
+                }
+            });
+
+            correctAnswerBox.innerText = `⏰ Time's up! Correct Answer: ${correct}`;
+            nextBtn.style.display = 'inline-block';
+        }
+
+        function updateProgressBar() {
+            const progress = ((currentQuestion) / quizData.length) * 100;
+            progressBar.style.width = `${progress}%`;
+        }
+
+        function resetState() {
+            questionEl.innerText = '';
+            optionsEl.innerHTML = '';
+            correctAnswerBox.innerText = '';
+            nextBtn.style.display = 'none';
+        }
+
+        function showFinalScore() {
+            document.getElementById('quiz-container').scrollIntoView({ behavior: 'smooth' });
+            timerBox.style.display = 'none';
+            questionEl.style.display = 'none';
+            optionsEl.style.display = 'none';
+            nextBtn.style.display = 'none';
+            correctAnswerBox.style.display = 'none';
+            finalScore.style.display = 'block';
+            scoreText.textContent = `${score} / ${quizData.length}`;
+            progressBar.style.width = `100%`;
+
+            // 🟢 Save to Firestore
+            if (typeof saveQuizScore === 'function') {
+                saveQuizScore(score);
+            }
+        }
+
     </script>
+    <script type="module">
+        // Firebase SDK imports
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-app.js";
+        import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-auth.js";
+        import { getFirestore, doc, setDoc } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-firestore.js";
 
-    <script type="module" src="../scripts/quiz.js"></script>
+        // Firebase config
+        const firebaseConfig = {
+            apiKey: "AIzaSyBt7je8Ga9fKVJ7Pu2Ok8HvbFaLV5Qe1ts",
+            authDomain: "hackersplayground-ca1a1.firebaseapp.com",
+            projectId: "hackersplayground-ca1a1",
+            storageBucket: "hackersplayground-ca1a1.appspot.com",
+            messagingSenderId: "597874916220",
+            appId: "1:597874916220:web:85ad84575aac58ce4c82f9",
+            measurementId: "G-PSC705VYNS"
+        };
 
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+        const db = getFirestore(app);
+
+        // Save score to Firestore
+        async function saveScoreToFirestore(score) {
+            const user = auth.currentUser;
+            if (!user) {
+                console.warn("User not authenticated. Cannot save score.");
+                return;
+            }
+
+            const docRef = doc(db, "leaderboard", user.uid);
+            const payload = {
+                email: user.email,
+                name: user.displayName || user.email.split("@")[0],
+                scores: {
+                    quiz1: score
+                }
+            };
+
+            try {
+                await setDoc(docRef, payload, { merge: true });
+                console.log("Score updated successfully");
+            } catch (error) {
+                console.error("Error saving score: ", error);
+            }
+        }
+
+        // Hook to expose saving to quiz logic
+        onAuthStateChanged(auth, (user) => {
+            if (user) {
+                window.saveQuizScore = (score) => saveScoreToFirestore(score);
+            } else {
+                window.saveQuizScore = () => console.warn("User not signed in, score not saved.");
+            }
+        });
+    </script>
 
 </body>
 

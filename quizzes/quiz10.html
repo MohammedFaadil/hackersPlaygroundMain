@@ -176,7 +176,7 @@
 
 <body>
     <div class="quiz-container" id="quiz-container">
-        <h1>Network Security</h1>
+        <h1>Penetration Testing</h1>
         <div class="timer" id="timer" style="display: none;">
             Time left: <span id="time">10</span> seconds
         </div>
@@ -198,107 +198,109 @@
     <script>
         const quizData = [
             {
-                question: "What is the primary purpose of an Intrusion Detection System (IDS)?",
+                question: "What is the primary goal of penetration testing?",
                 options: [
-                    "To detect and alert on suspicious activities within a network",
-                    "To prevent data from being accessed externally",
-                    "To encrypt sensitive information",
-                    "To create backup copies of data"
+                    "To permanently disable a system",
+                    "To exploit vulnerabilities for personal gain",
+                    "To identify and fix security weaknesses before real attackers do",
+                    "To remove viruses from a device"
                 ],
-                answer: "To detect and alert on suspicious activities within a network"
+                answer: "To identify and fix security weaknesses before real attackers do"
             },
             {
-                question: "What is the main function of a proxy server in network security?",
+                question: "What is the first phase of a penetration test?",
                 options: [
-                    "To prevent unauthorized data access",
-                    "To cache data for faster access",
-                    "To mask the client’s IP address",
-                    "To encrypt all data"
+                    "Exploitation",
+                    "Reporting",
+                    "Reconnaissance (Information Gathering)",
+                    "Scanning"
                 ],
-                answer: "To mask the client’s IP address"
+                answer: "Reconnaissance (Information Gathering)"
             },
             {
-                question: "What does SSL stand for in network security?",
+                question: "Which of the following is a popular tool for penetration testing?",
                 options: [
-                    "Secure Socket Layer",
-                    "Secret Security Link",
-                    "Server Socket Login",
-                    "Secure System Layer"
+                    "Excel",
+                    "Kali Linux",
+                    "Photoshop",
+                    "Zoom"
                 ],
-                answer: "Secure Socket Layer"
+                answer: "Kali Linux"
             },
             {
-                question: "Which type of attack floods a network with traffic to disrupt services?",
+                question: "Which phase involves actually using found vulnerabilities to gain access?",
                 options: [
-                    "Phishing",
-                    "DDoS (Distributed Denial of Service)",
-                    "SQL Injection",
-                    "Man-in-the-Middle"
+                    "Reporting",
+                    "Scanning",
+                    "Reconnaissance",
+                    "Exploitation"
                 ],
-                answer: "DDoS (Distributed Denial of Service)"
+                answer: "Exploitation"
             },
             {
-                question: "What is the purpose of a VPN in network security?",
+                question: "What is the purpose of a post-exploitation phase?",
                 options: [
-                    "To create a secure, encrypted connection over a less secure network",
-                    "To speed up internet access",
-                    "To provide more bandwidth for the network",
-                    "To protect the physical network infrastructure"
+                    "To clean up after a test",
+                    "To gain deeper access and gather valuable data",
+                    "To design the network",
+                    "To run antivirus scans"
                 ],
-                answer: "To create a secure, encrypted connection over a less secure network"
+                answer: "To gain deeper access and gather valuable data"
             },
             {
-                question: "What is a common method used to prevent unauthorized network access?",
+                question: "What is a white-box penetration test?",
                 options: [
-                    "Password reuse",
-                    "Multi-factor authentication",
-                    "Firewall bypassing",
-                    "Using public Wi-Fi"
+                    "The tester has no information about the target",
+                    "The tester has full knowledge of the system",
+                    "The tester is blindfolded during the test",
+                    "The test is done with fake tools"
                 ],
-                answer: "Multi-factor authentication"
+                answer: "The tester has full knowledge of the system"
             },
             {
-                question: "Which protocol is often used to secure data transmission over the internet?",
+                question: "Which type of test simulates an external attack with no prior information?",
                 options: [
-                    "HTTP",
-                    "FTP",
-                    "HTTPS",
-                    "SMTP"
+                    "White-box testing",
+                    "Gray-box testing",
+                    "Black-box testing",
+                    "Red team exercise"
                 ],
-                answer: "HTTPS"
+                answer: "Black-box testing"
             },
             {
-                question: "What is a firewall's role in network security?",
+                question: "Which phase includes the use of tools like Nmap and Nessus?",
                 options: [
-                    "It encrypts all data in the network",
-                    "It creates a barrier between trusted and untrusted networks",
-                    "It monitors and blocks malware",
-                    "It handles all IP address assignments"
+                    "Reconnaissance",
+                    "Exploitation",
+                    "Scanning",
+                    "Reporting"
                 ],
-                answer: "It creates a barrier between trusted and untrusted networks"
+                answer: "Scanning"
             },
             {
-                question: "What is the purpose of Network Access Control (NAC)?",
+                question: "What is the final deliverable of a penetration test?",
                 options: [
-                    "To restrict access to the network based on device compliance",
-                    "To manage IP addresses within a network",
-                    "To prevent malware from spreading",
-                    "To control network speed"
+                    "A signed contract",
+                    "A cybersecurity certificate",
+                    "A detailed report of findings and recommendations",
+                    "Source code"
                 ],
-                answer: "To restrict access to the network based on device compliance"
+                answer: "A detailed report of findings and recommendations"
             },
             {
-                question: "What is packet sniffing?",
+                question: "Why is legal authorization important before starting a penetration test?",
                 options: [
-                    "Intercepting and analyzing network packets",
-                    "Flooding the network with malicious packets",
-                    "Encrypting network traffic",
-                    "Hiding IP addresses"
+                    "To avoid network lag",
+                    "To gain better test results",
+                    "To prevent legal consequences for unauthorized hacking",
+                    "To increase internet speed"
                 ],
-                answer: "Intercepting and analyzing network packets"
-            },
-
+                answer: "To prevent legal consequences for unauthorized hacking"
+            }
         ];
+
+
+
 
         let currentQuestion = 0;
         let score = 0;

@@ -176,7 +176,7 @@
 
 <body>
     <div class="quiz-container" id="quiz-container">
-        <h1>Network Security</h1>
+        <h1>Mobile Security</h1>
         <div class="timer" id="timer" style="display: none;">
             Time left: <span id="time">10</span> seconds
         </div>
@@ -198,107 +198,109 @@
     <script>
         const quizData = [
             {
-                question: "What is the primary purpose of an Intrusion Detection System (IDS)?",
+                question: "What is the main purpose of mobile security?",
                 options: [
-                    "To detect and alert on suspicious activities within a network",
-                    "To prevent data from being accessed externally",
-                    "To encrypt sensitive information",
-                    "To create backup copies of data"
+                    "To play games safely",
+                    "To enhance device speed",
+                    "To protect mobile devices and data from threats and unauthorized access",
+                    "To connect mobile devices to Wi-Fi"
                 ],
-                answer: "To detect and alert on suspicious activities within a network"
+                answer: "To protect mobile devices and data from threats and unauthorized access"
             },
             {
-                question: "What is the main function of a proxy server in network security?",
+                question: "Which of the following is a common mobile security threat?",
                 options: [
-                    "To prevent unauthorized data access",
-                    "To cache data for faster access",
-                    "To mask the client’s IP address",
-                    "To encrypt all data"
+                    "Overcharging the battery",
+                    "App store updates",
+                    "Malicious apps",
+                    "Low storage"
                 ],
-                answer: "To mask the client’s IP address"
+                answer: "Malicious apps"
             },
             {
-                question: "What does SSL stand for in network security?",
+                question: "What should you check before installing a mobile app?",
                 options: [
-                    "Secure Socket Layer",
-                    "Secret Security Link",
-                    "Server Socket Login",
-                    "Secure System Layer"
+                    "If the app icon looks cool",
+                    "App permissions and developer credibility",
+                    "App ranking only",
+                    "Whether your friends use it"
                 ],
-                answer: "Secure Socket Layer"
+                answer: "App permissions and developer credibility"
             },
             {
-                question: "Which type of attack floods a network with traffic to disrupt services?",
+                question: "Which authentication method is considered more secure for unlocking phones?",
                 options: [
-                    "Phishing",
-                    "DDoS (Distributed Denial of Service)",
-                    "SQL Injection",
-                    "Man-in-the-Middle"
+                    "4-digit PIN",
+                    "Pattern lock",
+                    "Face recognition or fingerprint (biometrics)",
+                    "Swipe to unlock"
                 ],
-                answer: "DDoS (Distributed Denial of Service)"
+                answer: "Face recognition or fingerprint (biometrics)"
             },
             {
-                question: "What is the purpose of a VPN in network security?",
+                question: "What is the best way to protect sensitive data on your phone?",
                 options: [
-                    "To create a secure, encrypted connection over a less secure network",
-                    "To speed up internet access",
-                    "To provide more bandwidth for the network",
-                    "To protect the physical network infrastructure"
+                    "Use colorful wallpapers",
+                    "Disable the lock screen",
+                    "Encrypt the phone’s storage",
+                    "Share files via Bluetooth"
                 ],
-                answer: "To create a secure, encrypted connection over a less secure network"
+                answer: "Encrypt the phone’s storage"
             },
             {
-                question: "What is a common method used to prevent unauthorized network access?",
+                question: "What should you avoid when using public Wi-Fi on mobile?",
                 options: [
-                    "Password reuse",
-                    "Multi-factor authentication",
-                    "Firewall bypassing",
-                    "Using public Wi-Fi"
+                    "Browsing social media",
+                    "Streaming music",
+                    "Accessing banking or sensitive accounts",
+                    "Connecting to the strongest signal"
                 ],
-                answer: "Multi-factor authentication"
+                answer: "Accessing banking or sensitive accounts"
             },
             {
-                question: "Which protocol is often used to secure data transmission over the internet?",
+                question: "Which practice improves mobile security significantly?",
                 options: [
-                    "HTTP",
-                    "FTP",
-                    "HTTPS",
-                    "SMTP"
+                    "Using only third-party app stores",
+                    "Disabling antivirus apps",
+                    "Regularly updating the operating system",
+                    "Installing many apps quickly"
                 ],
-                answer: "HTTPS"
+                answer: "Regularly updating the operating system"
             },
             {
-                question: "What is a firewall's role in network security?",
+                question: "What is a mobile device management (MDM) solution used for?",
                 options: [
-                    "It encrypts all data in the network",
-                    "It creates a barrier between trusted and untrusted networks",
-                    "It monitors and blocks malware",
-                    "It handles all IP address assignments"
+                    "Gaming performance tuning",
+                    "Camera enhancement",
+                    "Securing and managing mobile devices in organizations",
+                    "Speeding up video playback"
                 ],
-                answer: "It creates a barrier between trusted and untrusted networks"
+                answer: "Securing and managing mobile devices in organizations"
             },
             {
-                question: "What is the purpose of Network Access Control (NAC)?",
+                question: "What can a phishing attack on mobile involve?",
                 options: [
-                    "To restrict access to the network based on device compliance",
-                    "To manage IP addresses within a network",
-                    "To prevent malware from spreading",
-                    "To control network speed"
+                    "Low battery warning",
+                    "Fake SMS or email with malicious links",
+                    "App crashes due to heat",
+                    "Notifications from legitimate apps"
                 ],
-                answer: "To restrict access to the network based on device compliance"
+                answer: "Fake SMS or email with malicious links"
             },
             {
-                question: "What is packet sniffing?",
+                question: "How can you protect your mobile apps from unauthorized access?",
                 options: [
-                    "Intercepting and analyzing network packets",
-                    "Flooding the network with malicious packets",
-                    "Encrypting network traffic",
-                    "Hiding IP addresses"
+                    "Rename the app icons",
+                    "Use app lock or biometric protection",
+                    "Minimize app size",
+                    "Change app themes"
                 ],
-                answer: "Intercepting and analyzing network packets"
-            },
-
+                answer: "Use app lock or biometric protection"
+            }
         ];
+
+
+
 
         let currentQuestion = 0;
         let score = 0;
